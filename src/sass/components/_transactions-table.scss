@@ -1,0 +1,124 @@
+@use '../base/utilities' as u;
+@use '../base/text' as t;
+@use '../components/button' as b;
+@use '../components/icon' as i;
+
+.transactions-table-container {
+    display: flex;
+    flex-direction: column;
+    gap: u.toRem(24);
+    padding: u.toRem(32) 0;
+}
+
+.header-transactions-table {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title-transactions-table {
+    @include t.heading("L", "semibold", "one-liner");
+}
+
+.filter-controls-transactions-table {
+    display: flex;
+    align-items: center;
+    gap: u.toRem(4);
+}
+
+.radio-filter-option {
+    @include u.sr-only;
+}
+
+.lable-filter-option {
+    @include t.base("S", "semibold", "one-liner");
+    @include b.btn;
+
+    padding: u.toRem(6) u.toRem(12);
+    border: 1px solid var(--c-outline-primary);
+    border-radius: u.toRem(24);
+    background-color: var(--c-surface-primary);
+    transition-property: background-color, color;
+    transition-duration: 100ms;
+    transition-timing-function: ease-in-out;
+
+    &:hover {
+        background-color: var(--c-surface-secondary);
+    }
+}
+
+.radio-filter-option:checked + .lable-filter-option {
+    color: white;
+    background-color: var(--c-on-surface-primary);
+}
+
+.transactions-table {
+    border-top: 1px solid var(--c-outline-primary);
+}
+
+.row-transactions-table {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+    padding: u.toRem(16) 0;
+    border-bottom: 1px solid var(--c-outline-primary);
+
+    &.income {
+        color: var(--c-mint-accent);
+    }
+
+    &.expense {
+        color: var(--c-orange-accent);
+    }
+}
+
+.description-transaction {
+    @include t.base("L");
+    grid-column: span 2;
+    color: var(--c-on-surface-primary);
+}
+
+.date-transaction {
+    @include t.base("L");
+    display: flex;
+    align-items: center;
+    gap: u.toRem(4);
+    color: var(--c-on-surface-secondary);
+}
+
+.icon-date-transaction {
+    @include i.icon(u.toRem(16), var(--c-on-surface-secondary));
+}
+
+.type-transaction {
+    @include t.base("S", "semibold", "one-liner");
+    display: flex;
+    align-items: center;
+    gap: u.toRem(4);
+    padding: u.toRem(4) u.toRem(6);
+    border-radius: u.toRem(4);
+    justify-self: flex-start;
+
+    .income & {
+        background-color: var(--c-mint-accent-container-secondary)
+    }
+
+    .expense & {
+        background-color: var(--c-orange-accent-container-secondary)
+    }
+}
+
+.icon-type-transaction {
+    .income & {
+        @include i.icon(u.toRem(16), var(--c-mint-accent));
+    }
+
+    .expense & {
+        @include i.icon(u.toRem(16), var(--c-orange-accent));
+    }
+}
+
+.amount-transaction {
+    @include t.base("L", "semibold", "one-liner");
+    text-align: right;
+}

@@ -65,7 +65,12 @@
   transition-timing-function: ease-in-out;
 
   &:hover {
-    background-color: var(--c-surface-tertiary);
+    color: var(--c-magenta-accent);
+    background-color: var(--c-magenta-accent-container-secondary);
+  }
+
+  &:hover > svg {
+    fill: var(--c-magenta-accent);
   }
 }
 

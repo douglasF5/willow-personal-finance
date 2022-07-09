@@ -7,6 +7,7 @@
 @use './components/top-bar';
 @use "./components/icon";
 @use './components/hero-section';
+@use './components/transactions-table';
 
 :root {
     // SETTING UP THEMABLE COLOR CUSTOM PROPERTIES
@@ -17,6 +18,7 @@
 
 body {
     font-family: text.$font-face;
+    color: var(--c-on-surface-primary);
 }
 
 h1 {
