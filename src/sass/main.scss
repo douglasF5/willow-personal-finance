@@ -1,0 +1,13 @@
+@use "./base/colors";
+@use "./base/text";
+
+:root {
+    // SETTING UP THEMABLE COLOR CUSTOM PROPERTIES
+    @each $color, $value in colors.$base-colors {
+      --c-#{$color}: #{$value};
+    }
+}
+
+body {
+    font-family: text.$font-face;
+}

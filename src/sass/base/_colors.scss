@@ -1,0 +1,30 @@
+$base-colors: (
+    //ACCENT MAGENTA
+    "magenta-accent": #DB004C,
+    "magenta-accent-container-primary": #DB004C,
+    "magenta-accent-container-secondary": rgba(219, 0, 76, 0.12),
+    "on-magenta-accent-container": #FFFFFF,
+    //ACCENT ORANGE
+    "orange-accent": #541F0E,
+    "orange-accent-container-primary": #FF6D59,
+    "orange-accent-container-secondary": rgba(255, 109, 89, 0.2),
+    //ACCENT MINT
+    "mint-accent": #093E31,
+    "mint-accent-container-primary": #1CD6A9,
+    "mint-accent-container-secondary": rgba(28, 214, 169, 0.2),
+    //SURFACE
+    "surface-primary": #FFFFFF,
+    "surface-secondary": rgba(28, 28, 28, 0.08),
+    "surface-tertiary": rgba(28, 28, 28, 0.12),
+    //OVER SURFACE
+    "over-surface-primary": hsla(172, 98%, 20%, 0.08),
+    "over-surface-secondary": hsla(172, 98%, 20%, 0.12),
+    "modal-overlay": hsla(171, 28%, 95%, 0.68),
+    //ON SURFACE
+    "on-surface-primary": #1C1C1C,
+    "on-surface-secondary": #595959,
+    "on-surface-tertiary": #8D8D8D,
+    //OUTLINE
+    "outline-primary": rgba(28, 28, 28, 0.18),
+    "outline-secondary": rgba(28, 28, 28, 0.4)
+);

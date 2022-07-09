@@ -1,0 +1,63 @@
+@function toRem($value) {
+    $remValue: ($value / 16) + rem; 
+    @return $remValue;
+}
+
+@function getLineHeight($flag) {
+    @if $flag == "one-liner" {
+      @return 100%;
+    } @else {
+      @return $flag;
+    }
+}
+
+$font-face: 'Inter', sans-serif;
+
+$font-weights: (
+  "regular": 400,
+  "medium": 500,
+  "semibold": 600,
+  "bold": 700,
+);
+
+$display-sizes: (
+  "M": toRem(44),
+);
+
+$heading-sizes: (
+  "L": toRem(24),
+  "S": toRem(20),
+);
+
+$base-sizes: (
+  "L": toRem(16),
+  "S": toRem(14),
+);
+
+$mini-sizes: (
+  "L": toRem(12),
+);
+
+@mixin t-display($size) {
+  font-size: map-get($display-sizes, $size);
+  font-weight: 700;
+  line-height: 100%;
+}
+
+@mixin t-heading($size, $weight: 700, $height: 100%) {
+    font-size: map-get($heading-sizes, $size);
+    font-weight: map-get($font-weights, $weight);
+    line-height: getLineHeight($height);
+}
+
+@mixin t-base($size, $weight: 400, $height: 135%) {
+  font-size: map-get($base-sizes, $size);
+  font-weight: map-get($font-weights, $weight);
+  line-height: getLineHeight($height);
+}
+
+@mixin t-mini($size, $weight: 600, $height: 100%) {
+    font-size: map-get($mini-sizes, $size);
+    font-weight: map-get($font-weights, $weight);
+    line-height: getLineHeight($height);
+}
