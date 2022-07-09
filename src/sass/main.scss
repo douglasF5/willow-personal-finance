@@ -1,5 +1,12 @@
 @use "./base/colors";
 @use "./base/text";
+@use "./base/reset";
+@use './base/utilities' as u;
+
+@use "./components/layout";
+@use './components/top-bar';
+@use "./components/icon";
+@use './components/hero-section';
 
 :root {
     // SETTING UP THEMABLE COLOR CUSTOM PROPERTIES
@@ -10,4 +17,8 @@
 
 body {
     font-family: text.$font-face;
+}
+
+h1 {
+    @include u.sr-only;
 }

@@ -1,0 +1,30 @@
+@use '../base/utilities' as utils;
+@use './button' as btn;
+@use './icon';
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: utils.toRem(60);
+}
+
+.logo-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: utils.toRem(4);
+}
+
+.theme-button {
+    @include btn.btn;
+    @include btn.icon-button-secondary(utils.toRem(36));
+}
+
+.theme-button > span {
+    @include utils.sr-only;
+}
+
+.icon-button-theme {
+    @include icon.icon(utils.toRem(16), --c-on-surface-primary);
+}

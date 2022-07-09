@@ -11,21 +11,58 @@
     <title>Personal finance app</title>
 </head>
 <body>
-    <div class="page-wrapper">
+    <div>
         <header class="section-container">
-            <div class="content-container">
+            <div class="content-container top-bar">
                 <div class="logo-wrapper">
-                    <img src="#" alt="logo-icon">
-                    <span>willow</span>
+                    <img src="./assets/logo-symbol.svg" alt="logo-symbol">
+                    <img src="./assets/logo-wordmark.svg" alt="logo-wordmark">
                 </div>
-                <button></button>
+                <button class="theme-button">
+                    <svg class="icon-button-theme">
+                        <use
+                          xlink:href="assets/icons.svg#moon"
+                        />
+                    </svg>
+                    <span>Theme</span>
+                </button>
             </div>
         </header>
-        <main class="section-container">
-            <section class="section-container">
-                <div class="content-container">
-                    <div class="stats-container"></div>
-                    <button></button>
+        <main>
+            <h1 class="page-main-heading">Willow budget tracker</h1>
+            <section class="section-container hero-section">
+                <div class="content-container hero-section-content">
+                    <div class="stats-container">
+                        <div class="stats-title-container">
+                            <h2>Total balance</h2>
+                            <button class="hide-values-button">
+                                <svg class="icon-button-hide-values">
+                                    <use
+                                      xlink:href="assets/icons.svg#eye"
+                                    />
+                                </svg>
+                                <span>Hide values</span>
+                            </button>
+                        </div>
+                        <strong class="total-balance-amount">R$ 11,337.60</strong>
+                        <button class="see-details-button">
+                            <span class="icon-wrapper-see-details">
+                                <svg class="icon-button-see-details">
+                                    <use
+                                      xlink:href="assets/icons.svg#info-circle"
+                                    />
+                                </svg>
+                            </span>
+                            See details
+                        </button>
+                    </div>
+                    <button class="button-add-new-transaction">New transactions
+                        <svg class="icon-button-new-transaction">
+                            <use
+                              xlink:href="assets/icons.svg#plus"
+                            />
+                        </svg>
+                    </button>
                 </div>
             </section>
             <section class="section-container">
@@ -35,7 +72,7 @@
             </section>
         </main>
         <footer class="section-container">
-            This is the footer.
+            <div class="content-container">This is the footer.</div>
         </footer>
     </div>
 </body>

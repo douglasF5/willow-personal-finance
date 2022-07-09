@@ -1,0 +1,10 @@
+@use '../base/utilities' as utils;
+
+.section-container {
+    padding: 0 48px;
+}
+
+.content-container {
+    max-width: 900px;
+    margin: 0 auto;
+}

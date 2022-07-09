@@ -3,7 +3,7 @@ $base-colors: (
     "magenta-accent": #DB004C,
     "magenta-accent-container-primary": #DB004C,
     "magenta-accent-container-secondary": rgba(219, 0, 76, 0.12),
-    "on-magenta-accent-container": #FFFFFF,
+    "on-magenta-accent-container-primary": #FFFFFF,
     //ACCENT ORANGE
     "orange-accent": #541F0E,
     "orange-accent-container-primary": #FF6D59,
@@ -16,10 +16,6 @@ $base-colors: (
     "surface-primary": #FFFFFF,
     "surface-secondary": rgba(28, 28, 28, 0.08),
     "surface-tertiary": rgba(28, 28, 28, 0.12),
-    //OVER SURFACE
-    "over-surface-primary": hsla(172, 98%, 20%, 0.08),
-    "over-surface-secondary": hsla(172, 98%, 20%, 0.12),
-    "modal-overlay": hsla(171, 28%, 95%, 0.68),
     //ON SURFACE
     "on-surface-primary": #1C1C1C,
     "on-surface-secondary": #595959,

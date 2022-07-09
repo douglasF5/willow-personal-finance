@@ -1,0 +1,84 @@
+@use '../base/utilities' as u;
+@use '../base/text' as t;
+@use './button' as b;
+@use './icon' as i;
+
+.hero-section {
+    border-radius: 0 0 32px 32px;
+    background-image: linear-gradient(180deg, var(--c-surface-primary) 0%, var(--c-surface-secondary) 100%);
+}
+
+.hero-section-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: u.toRem(80) 0;
+}
+
+.button-add-new-transaction {
+    @include b.btn;
+    @include b.primary-button;
+}
+
+.icon-button-new-transaction {
+    @include i.icon(u.toRem(20), var(--c-on-magenta-accent-container-primary));
+}
+
+.stats-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: u.toRem(8);
+}
+
+.stats-title-container {
+    display: flex;
+    align-items: center;
+    gap: u.toRem(4);
+
+    h2 {
+        @include t.heading("S", "semibold", "one-liner");
+    }
+}
+
+.hide-values-button {
+    @include b.btn;
+    @include b.icon-button-tertiary(u.toRem(36));
+
+    & span {
+        @include u.sr-only;
+    }
+}
+
+.icon-button-hide-values {
+    @include i.icon(u.toRem(20), var(--c-on-surface-primary));
+    transform: translateY(1%);
+}
+
+.total-balance-amount {
+    @include t.display("L");
+}
+
+.see-details-button {
+    @include b.btn;
+    @include b.list-button;
+
+    position: relative;
+    left: -8px;
+    align-self: flex-start;
+}
+
+.icon-wrapper-see-details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: u.toRem(24);
+    height: u.toRem(24);
+    border-radius: 50%;
+    background-color: var(--c-magenta-accent-container-primary);
+}
+
+.icon-button-see-details {
+    @include i.icon(u.toRem(14), var(--c-on-magenta-accent-container-primary));
+    transform: translateY(1%);
+}

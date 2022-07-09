@@ -1,0 +1,10 @@
+@mixin icon($size, $color, $hover: inherit) {
+    width: $size;
+    height: $size;
+    fill: $color;
+    transition: fill 100ms ease-in-out;
+
+    &:hover {
+        fill: $hover;
+    }
+}
