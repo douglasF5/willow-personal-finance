@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script type="module" defer src="./js/main.js"></script>
     <title>Personal finance app</title>
 </head>
 <body>
@@ -72,11 +73,15 @@
                         <form class="filter-controls-transactions-table">
                             <div>
                                 <input type="radio" name="filter-option" id="option-all" value="all" class="radio-filter-option" checked>
-                                <label for="option-all" class="lable-filter-option">All</label>
+                                <label for="option-all" class="lable-filter-option">All · 2</label>
                             </div>
                             <div>
                                 <input type="radio" name="filter-option" id="option-income" value="income" class="radio-filter-option">
                                 <label for="option-income" class="lable-filter-option">Income</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="filter-option" id="option-expense" value="expense" class="radio-filter-option">
+                                <label for="option-expense" class="lable-filter-option">Expense</label>
                             </div>
                         </form>
                     </div>
@@ -103,7 +108,14 @@
                         </div>
                         <div class="row-transactions-table expense">
                             <p class="description-transaction">Snacks at college</p>
-                            <span class="date-transaction">Jul 16 2022</span>
+                            <div class="date-transaction">
+                                <svg class="icon-date-transaction">
+                                    <use
+                                    xlink:href="assets/icons.svg#calendar"
+                                    />
+                                </svg>
+                                <span>Jul 16 2022</span>
+                            </div>
                             <div class="type-transaction">
                                 <svg class="icon-type-transaction">
                                     <use
@@ -121,6 +133,70 @@
         <!-- <footer class="section-container">
             <div class="content-container">This is the footer.</div>
         </footer> -->
+    </div>
+    <div class="new-transaction-modal-container">
+        <form class="under-layer-modal-content">
+            <p class="success-message">
+                <span class="emoji-success">🎉</span><br>Transaction <br> added!</p>
+            <button type="button" class="submit-button-add-transactions" id="submit-button-new-transaction-modal">Add transaction</button>
+            <div class="over-layer-modal-content" id="modal-over-layer">
+                <div class="top-section-modal">
+                    <h2 class="title-new-transaction-modal">New transaction</h2>
+                    <button type="button" class="close-modal-button" id="close-button-newtransaction-modal">
+                        <svg class="icon-button-close-modal">
+                            <use
+                              xlink:href="assets/icons.svg#x"
+                            />
+                        </svg>
+                        <span>Hide values</span>
+                    </button>
+                </div>
+                <div class="body-section-modal">
+                    <div class="options-transactions-type">
+                        <div>
+                            <input type="radio" name="transaction-type-option" id="option-type-income" value="income" class="radio-transaction-type-option" checked>
+                            <label for="option-type-income" class="lable-transaction-type-option">Income</label>
+                        </div>
+                        <div>
+                            <input type="radio" name="transaction-type-option" id="option-type-expense" value="expense" class="radio-transaction-type-option">
+                            <label for="option-type-expense" class="lable-transaction-type-option">Expense</label>
+                        </div>
+                    </div>
+                    <div class="text-input-container">
+                        <label class="descriptor-text-input animatable-label" for="transaction-title-text-field">Title</label>
+                        <input type="text" id="transaction-title-text-field" name="transaction-title-text-field" class="text-input">
+                        <svg class="icon-text-input">
+                            <use
+                              xlink:href="assets/icons.svg#text"
+                            />
+                        </svg>
+                    </div>
+                    <div class="text-input-container">
+                        <label class="descriptor-text-input animatable-label" for="transaction-title-text-field">Amount</label>
+                        <input type="text" id="transaction-title-text-field" name="transaction-title-text-field" class="text-input">
+                        <svg class="icon-text-input">
+                            <use
+                              xlink:href="assets/icons.svg#money"
+                            />
+                        </svg>
+                    </div>
+                    <div class="text-input-container">
+                        <label class="descriptor-text-input animatable-label" for="transaction-title-text-field">Date</label>
+                        <input type="text" id="transaction-title-text-field" name="transaction-title-text-field" class="text-input">
+                        <svg class="icon-text-input">
+                            <use
+                              xlink:href="assets/icons.svg#calendar-thicker"
+                            />
+                        </svg>
+                    </div>
+                    <svg class="icon-chevron-up">
+                        <use
+                          xlink:href="assets/icons.svg#chevron-up"
+                        />
+                    </svg>
+                </div>
+            </div>
+        </form>
     </div>
 </body>
 </html>

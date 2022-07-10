@@ -1,0 +1,76 @@
+@use '../base/utilities' as u;
+@use '../base/text' as t;
+@use '../components/icon' as i;
+
+.text-input-container {
+	position: relative;
+    display: flex;
+	justify-content: space-between;
+    align-items: center;
+    width: 100%;
+	padding: 0 16px;
+	border: 1px solid var(--c-outline-secondary);
+	border-radius: 8px;
+    cursor:text;
+
+    &:focus-within {
+        border: 1px solid var(--c-magenta-accent);
+    }
+}
+
+.descriptor-text-input {
+	@include t.base("L", "regular", "one-liner");
+
+	position: absolute;
+	top: 16px;
+	left: 16px;
+	padding: 0;
+	color: var(--c-on-surface-secondary);
+	background-color: transparent;
+	line-height: 100%;
+	transition-property: top, left;
+	transition-duration: 100ms;
+	transition-timing-function: ease-in-out;
+}
+
+.text-input {
+	@include t.base("L", "regular", "one-liner");
+
+    padding: u.toRem(14) 0;
+	border: none;
+	font-size: 16px;
+
+    &:focus-visible {
+        outline: none;
+    }
+}
+
+.text-input-container:focus-within > .animatable-label,
+.text-input-container:focus-within > .fixed-label {
+	@include t.mini("L", "medium", "one-liner");
+
+	top: -6px;
+	left: 10px;
+	padding: 0 4px;
+	background-color: var(--c-surface-primary);
+	color: var(--c-magenta-accent);
+}
+
+.fixed-label {
+	@include t.mini("L", "medium", "one-liner");
+	top: -6px;
+	left: 10px;
+	font-size: 12px;
+	padding: 0 4px;
+	background-color: var(--c-surface-primary);
+	color: var(--c-on-surface-primary);
+}
+
+.icon-text-input {
+    @include i.icon(u.toRem(20), var(--c-on-surface-tertiary));
+    pointer-events: none;
+}
+
+.text-input-container:focus-within > .icon-text-input {
+	fill: var(--c-magenta-accent);
+}

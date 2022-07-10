@@ -1,13 +1,13 @@
+@forward "./components/layout";
+@forward './components/top-bar';
+@forward './components/hero-section';
+@forward './components/transactions-table';
+@forward './components/new-transaction-modal';
+
 @use "./base/colors";
 @use "./base/text";
 @use "./base/reset";
 @use './base/utilities' as u;
-
-@use "./components/layout";
-@use './components/top-bar';
-@use "./components/icon";
-@use './components/hero-section';
-@use './components/transactions-table';
 
 :root {
     // SETTING UP THEMABLE COLOR CUSTOM PROPERTIES

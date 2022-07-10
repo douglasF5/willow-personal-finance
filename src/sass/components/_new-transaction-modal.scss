@@ -1,0 +1,164 @@
+@forward './input-field';
+
+@use '../base/utilities' as u;
+@use '../base/text' as t;
+@use '../components/button' as b;
+@use '../components/icon' as i;
+
+.new-transaction-modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.under-layer-modal-content {
+    position: absolute;
+    height: 483px;
+    min-width: 388px;
+    top: min(100px, 20vh);
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: var(--c-magenta-accent);
+}
+
+.success-message {
+    @include t.heading("L", "medium", 135%);
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--c-on-magenta-accent-container-primary);
+    text-align: center;
+}
+
+.emoji-success {
+    font-size: 40px;
+}
+
+.submit-button-add-transactions {
+    @include t.base("L", "semibold", "one-liner");
+
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 100%;
+    height: 64px;
+    transform: translateX(-50%);
+    border: none;
+    background-color: transparent;
+    white-space: nowrap;
+    color: var(--c-on-magenta-accent-container-primary);
+    cursor: pointer;
+}
+
+.over-layer-modal-content {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    flex-direction: column;
+    gap: u.toRem(40);
+    padding: u.toRem(40);
+    border-radius: 0 0 16px 16px;
+    background-color: var(--c-surface-primary);
+    box-shadow: 0px 8px 34px rgba(0, 0, 0, 0.21);
+    transition: bottom 100ms ease-in-out;
+}
+
+.over-layer-modal-content.shorten-animatable-layer-modal {
+    bottom: 64px;
+}
+
+.fly-away-animatable-layer-modal {
+    animation-name: fly-away;
+    animation-duration: 200ms;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fly-away {
+    0% { transform: translateY(0%);}
+    100% { transform: translateY(-100%) }
+}
+
+.top-section-modal {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.title-new-transaction-modal {
+    @include t.heading("L");
+}
+
+.close-modal-button {
+    @include b.btn;
+    @include b.icon-button-tertiary(u.toRem(36));
+
+    & span {
+        @include u.sr-only;
+    }
+}
+
+.icon-button-close-modal {
+    @include i.icon(u.toRem(20), var(--c-on-surface-secondary));
+}
+
+.body-section-modal {
+    display: flex;
+    flex-direction: column;
+    gap: u.toRem(24);
+}
+
+.options-transactions-type {
+    display: flex;
+    align-items: center;
+    gap: u.toRem(4);
+}
+
+.radio-transaction-type-option {
+    @include u.sr-only;
+}
+
+.lable-transaction-type-option {
+    @include t.base("S", "semibold", "one-liner");
+    @include b.btn;
+
+    padding: u.toRem(6) u.toRem(12);
+    border: 1px solid var(--c-outline-primary);
+    border-radius: u.toRem(24);
+    background-color: var(--c-surface-primary);
+    transition-property: background-color, color;
+    transition-duration: 100ms;
+    transition-timing-function: ease-in-out;
+
+    &:hover {
+        background-color: var(--c-surface-secondary);
+    }
+}
+
+.radio-transaction-type-option:checked + .lable-transaction-type-option {
+    color: var(--c-on-magenta-accent-container-primary);
+    background-color: var(--c-magenta-accent-container-primary);
+}
+
+.icon-chevron-up {
+    @include i.icon(u.toRem(16), var(--c-on-surface-tertiary));
+    
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.shorten-animatable-layer-modal .icon-chevron-up {
+    fill: var(--c-magenta-accent);
+}
