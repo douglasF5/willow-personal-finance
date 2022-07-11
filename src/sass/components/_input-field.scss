@@ -11,7 +11,7 @@
 	padding: 0 16px;
 	border: 1px solid var(--c-outline-secondary);
 	border-radius: 8px;
-    cursor:text;
+    cursor: text;
 
     &:focus-within {
         border: 1px solid var(--c-magenta-accent);
@@ -31,6 +31,7 @@
 	transition-property: top, left;
 	transition-duration: 100ms;
 	transition-timing-function: ease-in-out;
+	cursor: text;
 }
 
 .text-input {
@@ -53,6 +54,10 @@
 	left: 10px;
 	padding: 0 4px;
 	background-color: var(--c-surface-primary);
+	color: var(--c-magenta-accent);
+}
+
+.text-input:focus + .fixed-label {
 	color: var(--c-magenta-accent);
 }
 

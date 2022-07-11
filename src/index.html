@@ -16,7 +16,7 @@
         <header class="section-container">
             <div class="content-container top-bar">
                 <div class="logo-wrapper">
-                    <img src="./assets/logo-symbol.svg" alt="logo-symbol">
+                    <img src="./assets/logo-symbol-2.svg" alt="logo-symbol">
                     <img src="./assets/logo-wordmark.svg" alt="logo-wordmark">
                 </div>
                 <button class="theme-button">
@@ -45,7 +45,7 @@
                                 <span>Hide values</span>
                             </button>
                         </div>
-                        <strong class="total-balance-amount">R$ 11,337.60</strong>
+                        <strong class="total-balance-amount">R$ 5,395.37</strong>
                         <button class="see-details-button">
                             <span class="icon-wrapper-see-details">
                                 <svg class="icon-button-see-details">
@@ -57,7 +57,7 @@
                             See details
                         </button>
                     </div>
-                    <button class="button-add-new-transaction">New transactions
+                    <button class="button-add-new-transaction" id="button-add-new-transaction">New transaction
                         <svg class="icon-button-new-transaction">
                             <use
                               xlink:href="assets/icons.svg#plus"
@@ -104,7 +104,7 @@
                                 </svg>
                                 <span>Income</span>
                             </div>
-                            <strong class="amount-transaction">-R$ 900.00</strong>
+                            <strong class="amount-transaction">R$ 900.00</strong>
                         </div>
                         <div class="row-transactions-table expense">
                             <p class="description-transaction">Snacks at college</p>
@@ -126,19 +126,36 @@
                             </div>
                             <strong class="amount-transaction">-R$ 5.50</strong>
                         </div>
+                        <div class="row-transactions-table income">
+                            <p class="description-transaction">Snacks at college</p>
+                            <div class="date-transaction">
+                                <svg class="icon-date-transaction">
+                                    <use
+                                    xlink:href="assets/icons.svg#calendar"
+                                    />
+                                </svg>
+                                <span>Jul 16 2022</span>
+                            </div>
+                            <div class="type-transaction">
+                                <svg class="icon-type-transaction">
+                                    <use
+                                    xlink:href="assets/icons.svg#plus-circle"
+                                    />
+                                </svg>
+                                <span>Income</span>
+                            </div>
+                            <strong class="amount-transaction">R$ 4,500.87</strong>
+                        </div>
                     </div>
                 </div>
             </section>
         </main>
-        <!-- <footer class="section-container">
-            <div class="content-container">This is the footer.</div>
-        </footer> -->
     </div>
-    <div class="new-transaction-modal-container">
-        <form class="under-layer-modal-content">
+    <div class="new-transaction-modal-container" data-is-hidden="true" id="new-transaction-modal">
+        <form class="under-layer-modal-content" id="forms-new-transaction-modal" name="forms-new-transaction-modal">
             <p class="success-message">
                 <span class="emoji-success">🎉</span><br>Transaction <br> added!</p>
-            <button type="button" class="submit-button-add-transactions" id="submit-button-new-transaction-modal">Add transaction</button>
+            <button type="submit" class="submit-button-add-transactions" id="submit-button-new-transaction-modal">Add transaction</button>
             <div class="over-layer-modal-content" id="modal-over-layer">
                 <div class="top-section-modal">
                     <h2 class="title-new-transaction-modal">New transaction</h2>
@@ -172,8 +189,8 @@
                         </svg>
                     </div>
                     <div class="text-input-container">
-                        <label class="descriptor-text-input animatable-label" for="transaction-title-text-field">Amount</label>
-                        <input type="text" id="transaction-title-text-field" name="transaction-title-text-field" class="text-input">
+                        <label class="descriptor-text-input animatable-label" for="transaction-amount-text-field">Amount</label>
+                        <input type="text" inputmode="numeric" id="transaction-amount-text-field" name="transaction-amount-text-field" class="text-input">
                         <svg class="icon-text-input">
                             <use
                               xlink:href="assets/icons.svg#money"
@@ -181,8 +198,8 @@
                         </svg>
                     </div>
                     <div class="text-input-container">
-                        <label class="descriptor-text-input animatable-label" for="transaction-title-text-field">Date</label>
-                        <input type="text" id="transaction-title-text-field" name="transaction-title-text-field" class="text-input">
+                        <label class="descriptor-text-input animatable-label" for="transaction-date-text-field">Date</label>
+                        <input type="text" id="transaction-date-text-field" name="transaction-date-text-field" class="text-input">
                         <svg class="icon-text-input">
                             <use
                               xlink:href="assets/icons.svg#calendar-thicker"

@@ -12,6 +12,29 @@
     bottom: 0;
     right: 0;
     background-color: rgba(0, 0, 0, 0.4);
+    animation: fade-in 100ms ease-in forwards;
+}
+
+.fade-out-modal {
+    animation: fade-out 100ms ease-in forwards;
+}
+
+@keyframes fade-in {
+    0% { opacity: 0;}
+    100% { opacity: 100%; }
+}
+
+@keyframes fade-out {
+    0% { opacity: 100%;}
+    100% { opacity: 0%; }
+}
+
+.new-transaction-modal-container[data-is-hidden="true"] {
+    display: none;
+}
+
+.new-transaction-modal-container[data-is-hidden="false"] {
+    display: block;
 }
 
 .under-layer-modal-content {
@@ -55,6 +78,10 @@
     white-space: nowrap;
     color: var(--c-on-magenta-accent-container-primary);
     cursor: pointer;
+}
+
+.submit-button-add-transactions.hidden {
+    visibility: hidden;
 }
 
 .over-layer-modal-content {
