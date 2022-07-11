@@ -348,10 +348,10 @@ const number = (value, locale = navigator.language, style = "decimal", options) 
     let listener;
     switch (pattern) {
       case "currency": {
-        element.placeholder = currency(0);
+        // element.placeholder = currency(0);
         listener = () => {
           const unmaskedNumber = unmaskNumber(element.value);
-          element.value = unmaskedNumber === 0 || isNaN(unmaskedNumber) ? "" : currency(unmaskedNumber);
+          element.value = unmaskedNumber === 0 || isNaN(unmaskedNumber) ? "" : currency(unmaskedNumber, "pt-BR", "BRL");
         };
         break;
       }

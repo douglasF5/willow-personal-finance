@@ -62,24 +62,7 @@ let amountValue = new Intl.NumberFormat("pt-BR", {
     currency: "BRL",
 });
 
-amountField.addEventListener('input', (e) => {
-    let temp = e.target.value.replace(",", ".").replace(/\D/g, "");
-    let amountNewValue = "";
-
-    if(/^([0-9])$/.test(e.data) || e.data === null) {
-        if(temp.length === 1) {
-            amountNewValue = "0.0" + temp;
-        } else {
-            amountNewValue = temp.substring(0, temp.length - 2) + "." + temp.at(-2) + temp.at(-1);
-        }
-
-        e.target.value = amountValue.format(amountNewValue);
-        prevVal = e.target.value;
-    } else {
-        e.target.value = prevVal;
-    }
-});
-
+smask.input(amountField, ["currency"]);
 smask.input(dateField, ["date"]);
 
 function animateInputTextField(fieldContainer) {
