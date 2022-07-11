@@ -25,17 +25,36 @@ newTransactionModal.onclick = (e) => {
 }
 
 //GO-AWAY CARD
-const fieldTransactionDate = document.getElementById('transaction-date-text-field');
+export const modalInputTextFields = document.querySelectorAll('.text-input-container');
 const submitButton = document.getElementById('submit-button-new-transaction-modal');
 const modalOverLayer = document.getElementById('modal-over-layer');
 
-function animateModalOverLayer() {
-    modalOverLayer.classList.add('shorten-animatable-layer-modal');
+function makeCardReady(flag) {
+
+    if(flag) {
+        modalOverLayer.classList.add('shorten-animatable-layer-modal');
+        submitButton.disabled = false;
+    } else {
+        modalOverLayer.classList.remove('shorten-animatable-layer-modal');
+        submitButton.disabled = true;
+    }
 }
 
-fieldTransactionDate.addEventListener('input', (e) => {
-    if(!(e.target.value == "")) animateModalOverLayer();
-});
+function checkInputFields(inputFields) {
+    let filledFields = 0;
+
+    for(let field of inputFields) {
+        if(field.children[1].value) filledFields++;
+    }
+
+    return filledFields === 3;
+}
+
+for(let field of modalInputTextFields) {
+    field.addEventListener('input', () => {
+        makeCardReady(checkInputFields(modalInputTextFields));
+    });
+}
 
 submitButton.onclick = () => {
     modalOverLayer.classList.add('fly-away-animatable-layer-modal');
@@ -50,17 +69,9 @@ modalOverLayer.addEventListener('animationend', () => {
     }, 1500)
 });
 
-
 //TEXT INPUT FIELD STYLES
-export const modalInputFields = document.querySelectorAll('.text-input-container');
 const amountField = document.getElementById('transaction-amount-text-field');
 const dateField = document.getElementById('transaction-date-text-field');
-let prevVal = "";
-
-let amountValue = new Intl.NumberFormat("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-});
 
 smask.input(amountField, ["currency"]);
 smask.input(dateField, ["date"]);
@@ -78,7 +89,7 @@ function animateInputTextField(fieldContainer) {
     }
 }
 
-for(let fieldContainer of modalInputFields) {
+for(let fieldContainer of modalInputTextFields) {
     const field = fieldContainer.children[1];
 
     field.addEventListener('blur', () => {

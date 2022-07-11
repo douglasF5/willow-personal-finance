@@ -1,4 +1,4 @@
-import { hideModal, modalInputFields } from "./style-animation-new-transaction-modal.js";
+import { hideModal, modalInputTextFields } from "./style-animation-new-transaction-modal.js";
 
 const formsNewTransactionModal = document.getElementById('forms-new-transaction-modal');
 let formData = {};
@@ -18,7 +18,7 @@ function resetForms(formElements) {
         };
     }
 
-    for(let fieldContainer of modalInputFields) {
+    for(let fieldContainer of modalInputTextFields) {
         const label = fieldContainer.children[0];
         const field = fieldContainer.children[1];
 
@@ -49,7 +49,6 @@ formsNewTransactionModal.addEventListener('submit', (e) => {
                 formData[key] = field.value;
             }
         };
-
     }
 
     resetForms(formElements);
