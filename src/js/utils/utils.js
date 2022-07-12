@@ -1,14 +1,27 @@
 //FORMAT TEXT
 export function toTitleCaseWord(word) {
 	let first = word[0];
-  let rest = word.substr(1, word.length + 1);
+  let rest = word.substr(1, word.length);
   return first.toUpperCase() + rest;
 }
 
 //FORMAT DATE
-export function formatDate(date) {
-  const dateArray = date.split('-');
-  const formattedDate = `${numberToMonth(dateArray[1])} ${dateArray[2]}, ${dateArray[0]}`;
+export function formatDate(date, pattern='Mmm dd, yyyy') {
+  let dateArray;
+  let formattedDate;
+
+  switch (pattern) {
+    case 'yyyy-mm-dd':
+      dateArray = date.split('/');
+      formattedDate = `${dateArray[2]}-${dateArray[1]}-${dateArray[0]}`;
+      break;
+    case 'Mmm dd, yyyy':
+      dateArray = date.split('-');
+      formattedDate = `${numberToMonth(dateArray[1])} ${dateArray[2]}, ${dateArray[0]}`;
+      break;
+    default:
+      return date;
+  }
 
   return formattedDate;
 }

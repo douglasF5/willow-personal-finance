@@ -1,4 +1,7 @@
 import { hideModal, modalInputTextFields } from "./style-animation-new-transaction-modal.js";
+import { addNewTransaction, filterTransactionsData } from '../transactions-table/listing-transactions.js';
+import { formatDate } from "../utils/utils.js";
+import smask from '../utils/field-masking.js';
 
 const formsNewTransactionModal = document.getElementById('forms-new-transaction-modal');
 let formData = {};
@@ -54,6 +57,14 @@ formsNewTransactionModal.addEventListener('submit', (e) => {
     setTimeout(() => {
         hideModal();
     }, 1250);
+
+    addNewTransaction({
+        id: filterTransactionsData('all').count + 1,
+        type: formData.type,
+        title: formData.title,
+        amount: formData.type === 'income' ? smask.currencyUnformat(formData.amount, "pt-BR", "BRL") : smask.currencyUnformat(formData.amount, "pt-BR", "BRL") * -1,
+        date: formatDate(formData.date, 'yyyy-mm-dd'),
+    });
 
     console.log(formData);
 })

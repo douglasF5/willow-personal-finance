@@ -1,7 +1,10 @@
 import { transactionsData } from "../transactions-data.js";
 import { toTitleCaseWord, formatDate } from '../utils/utils.js';
+import { updateStats } from '../stats.js';
 
+export let transactionsDataState = [...transactionsData] || [];
 const transactionsTableEl = document.getElementById('transactions-table');
+let currentFilter = 'all';
 
 //FILTER TRANSACTIONS TABLE
 const filterOptionsEl = document.getElementById('filter-controls-transactions-table').children;
@@ -14,7 +17,7 @@ function updateFilterOptions() {
         const label = filterOptionsEl[i].children[1];
         const { count } = filterTransactionsData(field.value);
         
-        label.innerHTML = `${filterOptionLabels[i]} · ${count}`;
+        label.innerText = count ? `${filterOptionLabels[i]} · ${count}` : filterOptionLabels[i];
     }
 }
 
@@ -22,7 +25,8 @@ for(let option of filterOptionsEl) {
     const field = option.children[0];
 
     field.addEventListener('click', () => {
-        renderTransactiontable(field.value);
+        renderTransactionTable(field.value);
+        currentFilter = field.value;
     });
 
 }
@@ -59,23 +63,32 @@ function getTransactionRowEl(transactionData) {
     return transactionRowContainer;
 }
 
-function filterTransactionsData(filter) {
-    const data = filter === 'all'
-        ? [...transactionsData]
-        : transactionsData.filter(transaction => transaction.type === filter);
+export function filterTransactionsData(filter) {
+    const transactions = filter === 'all'
+        ? transactionsDataState
+        : transactionsDataState.filter(transaction => transaction.type === filter);
 
-    return {data, count: data.length};
+    return {transactions, count: transactions.length};
 }
 
-function renderTransactiontable(filter) {
+function renderTransactionTable(filter, data=filterTransactionsData(filter)) {
     transactionsTableEl.innerHTML = "";
-    const { data } = filterTransactionsData(filter);
+    const { transactions } = data;
 
-    data.forEach(transaction => {
+    transactions.forEach(transaction => {
         let row = getTransactionRowEl(transaction);
         transactionsTableEl.append(row);
     });
 }
 
+//ADD NEW TRANSACTION
+export function addNewTransaction(data) {
+    transactionsDataState = [...transactionsDataState, data];
+
+    updateFilterOptions();
+    renderTransactionTable(currentFilter);
+    updateStats();
+}
+
 updateFilterOptions();
-renderTransactiontable('all');
+renderTransactionTable(currentFilter);
