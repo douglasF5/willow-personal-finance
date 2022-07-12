@@ -12,7 +12,7 @@
     <title>Personal finance app</title>
 </head>
 <body>
-    <div>
+    <div class="page-wrapper">
         <header class="section-container">
             <div class="content-container top-bar">
                 <div class="logo-wrapper">
@@ -70,10 +70,10 @@
                 <div class="content-container transactions-table-container">
                     <div class="header-transactions-table">
                         <h2 class="title-transactions-table">Transactions</h2>
-                        <form class="filter-controls-transactions-table">
+                        <form class="filter-controls-transactions-table" id="filter-controls-transactions-table">
                             <div>
                                 <input type="radio" name="filter-option" id="option-all" value="all" class="radio-filter-option" checked>
-                                <label for="option-all" class="lable-filter-option">All · 2</label>
+                                <label for="option-all" class="lable-filter-option">All</label>
                             </div>
                             <div>
                                 <input type="radio" name="filter-option" id="option-income" value="income" class="radio-filter-option">
@@ -85,8 +85,8 @@
                             </div>
                         </form>
                     </div>
-                    <div class="transactions-table">
-                        <div class="row-transactions-table income">
+                    <div class="transactions-table" id="transactions-table">
+                        <!-- <div class="row-transactions-table income">
                             <p class="description-transaction">Freelance work</p>
                             <div class="date-transaction">
                                 <svg class="icon-date-transaction">
@@ -145,7 +145,7 @@
                                 <span>Income</span>
                             </div>
                             <strong class="amount-transaction">R$ 4,500.87</strong>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </section>

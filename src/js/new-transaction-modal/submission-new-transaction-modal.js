@@ -32,11 +32,10 @@ function resetForms(formElements) {
     }
 }
 
+//HANDLE SUBMIT
 formsNewTransactionModal.addEventListener('submit', (e) => {
     e.preventDefault();
     const formElements = e.target.elements;
-
-    console.log('hey');
 
     for(let field of formElements) {
 
