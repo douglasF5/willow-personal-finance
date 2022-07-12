@@ -49,6 +49,10 @@
     background-color: var(--c-magenta-accent);
 }
 
+.under-layer-modal-content.success {
+    background-color: #037B49;
+}
+
 .success-message {
     @include t.heading("L", "medium", 135%);
 

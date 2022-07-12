@@ -28,6 +28,7 @@ newTransactionModal.onclick = (e) => {
 export const modalInputTextFields = document.querySelectorAll('.text-input-container');
 const submitButton = document.getElementById('submit-button-new-transaction-modal');
 const modalOverLayer = document.getElementById('modal-over-layer');
+const modalUnderLayer = document.getElementById('forms-new-transaction-modal');
 
 function makeCardReady(flag) {
 
@@ -59,12 +60,14 @@ for(let field of modalInputTextFields) {
 submitButton.onclick = () => {
     modalOverLayer.classList.add('fly-away-animatable-layer-modal');
     submitButton.classList.add('hidden');
+    modalUnderLayer.classList.add('success');
 };
 
 modalOverLayer.addEventListener('animationend', () => {
     setTimeout(() => {
         modalOverLayer.classList.remove('shorten-animatable-layer-modal');
         modalOverLayer.classList.remove('fly-away-animatable-layer-modal');
+        modalUnderLayer.classList.remove('success');
         submitButton.classList.remove('hidden');
     }, 1500)
 });
