@@ -1,10 +1,11 @@
 import { transactionsData } from "../transactions-data.js";
 import { toTitleCaseWord, formatDate } from '../utils/utils.js';
-import { updateStats } from '../stats.js';
+import { updateStats } from "../stats.js";
+import { areValuesHidden, HIDDEN_VALUE_PLACEHOLDER } from "../hide-values.js";
 
 export let transactionsDataState = [...transactionsData] || [];
 const transactionsTableEl = document.getElementById('transactions-table');
-let currentFilter = 'all';
+export let currentFilter = 'all';
 
 //FILTER TRANSACTIONS TABLE
 const filterOptionsEl = document.getElementById('filter-controls-transactions-table').children;
@@ -58,7 +59,7 @@ function getTransactionRowEl(transactionData) {
         </svg>
         <span>${toTitleCaseWord(transactionData.type)}</span>
     </div>
-    <strong class="amount-transaction">${formatTransactionAmount.format(transactionData.amount)}</strong>`;
+    <strong class="amount-transaction">${!areValuesHidden ? formatTransactionAmount.format(transactionData.amount) : HIDDEN_VALUE_PLACEHOLDER}</strong>`;
 
     return transactionRowContainer;
 }
@@ -71,14 +72,33 @@ export function filterTransactionsData(filter) {
     return {transactions, count: transactions.length};
 }
 
-function renderTransactionTable(filter, data=filterTransactionsData(filter)) {
-    transactionsTableEl.innerHTML = "";
+export function renderTransactionTable(filter, data=filterTransactionsData(filter)) {
     const { transactions } = data;
+    if(transactions.length === 0) return;
 
-    transactions.forEach(transaction => {
-        let row = getTransactionRowEl(transaction);
-        transactionsTableEl.append(row);
-    });
+    transactionsTableEl.innerHTML = "";
+
+    if(areValuesHidden) {        
+        let hiddenTransactions = transactions.map(transaction => {
+            return {
+                id: transaction.id,
+                type: transaction.type,
+                title: transaction.title,
+                amount: HIDDEN_VALUE_PLACEHOLDER,
+                date: transaction.date
+            };
+        });    
+
+        hiddenTransactions.forEach(transaction => {
+            let hiddenRow = getTransactionRowEl(transaction);
+            transactionsTableEl.append(hiddenRow);
+        });
+    } else {
+        transactions.forEach(transaction => {
+            let row = getTransactionRowEl(transaction);
+            transactionsTableEl.append(row);
+        });
+    }
 }
 
 //ADD NEW TRANSACTION
@@ -92,3 +112,4 @@ export function addNewTransaction(data) {
 
 updateFilterOptions();
 renderTransactionTable(currentFilter);
+updateStats();

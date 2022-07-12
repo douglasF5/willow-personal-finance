@@ -109,6 +109,7 @@
 }
 
 .fly-away-animatable-layer-modal {
+    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
     animation-name: fly-away;
     animation-duration: 200ms;
     animation-timing-function: ease-in-out;
