@@ -28,6 +28,25 @@
   color: var(--c-on-magenta-accent-container-primary);
 }
 
+@mixin tertiary-button {
+  @include t.base("L", "semibold", "one-liner");
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: u.toRem(4);
+  padding: u.toRem(16);
+  border: none;
+  border-radius: u.toRem(8);
+  background-color: transparent;
+  color: var(--c-magenta-accent);
+  transition: background-color 100ms ease-in-out;
+
+  &:hover {
+    background-color: var(--c-magenta-accent-container-secondary);
+  }
+}
+
 @mixin icon-button-secondary($size) {
   display: flex;
   justify-content: center;

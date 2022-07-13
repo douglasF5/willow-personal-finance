@@ -36,7 +36,7 @@
                     <div class="stats-container">
                         <div class="stats-title-container">
                             <h2>Total balance</h2>
-                            <button class="hide-values-button" id="hide-values-button">
+                            <button class="hide-values-button" id="hide-values-button" title="Hide values">
                                 <svg class="icon-button-hide-values" id="icon-button-hide-values">
                                     <use
                                       xlink:href="assets/icons.svg#eye"
@@ -45,8 +45,8 @@
                                 <span>Hide values</span>
                             </button>
                         </div>
-                        <strong class="total-balance-amount" id="total-balance-amount">R$ 0,00</strong>
-                        <button class="see-details-button">
+                        <strong class="total-balance-amount" id="total-balance-amount" title="Total balance">R$ 0,00</strong>
+                        <button class="see-details-button" title="See details" id="button-see-details">
                             <span class="icon-wrapper-see-details">
                                 <svg class="icon-button-see-details">
                                     <use
@@ -57,7 +57,7 @@
                             See details
                         </button>
                     </div>
-                    <button class="button-add-new-transaction" id="button-add-new-transaction">New transaction
+                    <button class="button-add-new-transaction" id="button-add-new-transaction" title="Add new transaction">New transaction
                         <svg class="icon-button-new-transaction">
                             <use
                               xlink:href="assets/icons.svg#plus"
@@ -73,85 +73,24 @@
                         <form class="filter-controls-transactions-table" id="filter-controls-transactions-table">
                             <div>
                                 <input type="radio" name="filter-option" id="option-all" value="all" class="radio-filter-option" checked>
-                                <label for="option-all" class="lable-filter-option">All</label>
+                                <label for="option-all" class="lable-filter-option" title="All">All</label>
                             </div>
                             <div>
                                 <input type="radio" name="filter-option" id="option-income" value="income" class="radio-filter-option">
-                                <label for="option-income" class="lable-filter-option">Income</label>
+                                <label for="option-income" class="lable-filter-option" title="Income">Income</label>
                             </div>
                             <div>
                                 <input type="radio" name="filter-option" id="option-expense" value="expense" class="radio-filter-option">
-                                <label for="option-expense" class="lable-filter-option">Expense</label>
+                                <label for="option-expense" class="lable-filter-option" title="Expenses">Expenses</label>
                             </div>
                         </form>
                     </div>
-                    <div class="transactions-table" id="transactions-table">
-                        <!-- <div class="row-transactions-table income">
-                            <p class="description-transaction">Freelance work</p>
-                            <div class="date-transaction">
-                                <svg class="icon-date-transaction">
-                                    <use
-                                    xlink:href="assets/icons.svg#calendar"
-                                    />
-                                </svg>
-                                <span>Jul 16 2022</span>
-                            </div>
-                            <div class="type-transaction">
-                                <svg class="icon-type-transaction">
-                                    <use
-                                    xlink:href="assets/icons.svg#plus-circle"
-                                    />
-                                </svg>
-                                <span>Income</span>
-                            </div>
-                            <strong class="amount-transaction">R$ 900.00</strong>
-                        </div>
-                        <div class="row-transactions-table expense">
-                            <p class="description-transaction">Snacks at college</p>
-                            <div class="date-transaction">
-                                <svg class="icon-date-transaction">
-                                    <use
-                                    xlink:href="assets/icons.svg#calendar"
-                                    />
-                                </svg>
-                                <span>Jul 16 2022</span>
-                            </div>
-                            <div class="type-transaction">
-                                <svg class="icon-type-transaction">
-                                    <use
-                                    xlink:href="assets/icons.svg#minus-circle"
-                                    />
-                                </svg>
-                                <span>Expense</span>
-                            </div>
-                            <strong class="amount-transaction">-R$ 5.50</strong>
-                        </div>
-                        <div class="row-transactions-table income">
-                            <p class="description-transaction">Snacks at college</p>
-                            <div class="date-transaction">
-                                <svg class="icon-date-transaction">
-                                    <use
-                                    xlink:href="assets/icons.svg#calendar"
-                                    />
-                                </svg>
-                                <span>Jul 16 2022</span>
-                            </div>
-                            <div class="type-transaction">
-                                <svg class="icon-type-transaction">
-                                    <use
-                                    xlink:href="assets/icons.svg#plus-circle"
-                                    />
-                                </svg>
-                                <span>Income</span>
-                            </div>
-                            <strong class="amount-transaction">R$ 4,500.87</strong>
-                        </div> -->
-                    </div>
+                    <div class="transactions-table" id="transactions-table"></div>
                 </div>
             </section>
         </main>
     </div>
-    <div class="new-transaction-modal-container" data-is-hidden="true" id="new-transaction-modal">
+    <div class="modal-container" data-is-hidden="true" id="new-transaction-modal">
         <form class="under-layer-modal-content" id="forms-new-transaction-modal" name="forms-new-transaction-modal">
             <p class="success-message">
                 <span class="emoji-success">🎉</span><br>Transaction <br> added!</p>
@@ -214,6 +153,21 @@
                 </div>
             </div>
         </form>
+    </div>
+    <div class="modal-container" data-is-hidden="true" id="balance-details-modal">
+        <div class="balance-details-modal-content">
+            <h2 class="title-balance-details-modal">Balance details</h2>
+            <div class="body-balance-details-modal" id="body-balance-details-modal">
+                <div class="content-row-balance-details-modal">
+                    <div class="stat-title-balance-details-modal">
+                        <h3>(+) Total Income</h3>
+                        <p>7 transactions</p>
+                    </div>
+                    <strong>R$ 5.600,00</strong>
+                </div>
+            </div>
+            <button type="button" class="dismiss-button-balance-details-modal" id="dismiss-button-balance-details-modal">Ok, I understand</button>
+        </div>
     </div>
 </body>
 </html>

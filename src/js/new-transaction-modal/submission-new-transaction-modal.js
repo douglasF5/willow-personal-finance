@@ -1,4 +1,5 @@
-import { hideModal, modalInputTextFields } from "./style-animation-new-transaction-modal.js";
+import { modalInputTextFields } from "./style-animation-new-transaction-modal.js";
+import { hideModal } from '../modal.js';
 import { addNewTransaction, filterTransactionsData } from '../transactions-table/listing-transactions.js';
 import { formatDate } from "../utils/utils.js";
 import smask from '../utils/field-masking.js';
@@ -55,7 +56,7 @@ formsNewTransactionModal.addEventListener('submit', (e) => {
 
     resetForms(formElements);
     setTimeout(() => {
-        hideModal();
+        hideModal('new-transaction-modal');
     }, 1250);
 
     addNewTransaction({

@@ -1,12 +1,11 @@
-import { transactionsDataState } from "./transactions-table/listing-transactions.js";
-import { updateStats } from "./stats.js";
+import { updateBalanceOnUI } from "./stats.js";
 import { renderTransactionTable, currentFilter } from './transactions-table/listing-transactions.js';
 
-export const HIDDEN_VALUE_PLACEHOLDER = '••••••';
+export const HIDDEN_VALUE_PLACEHOLDER = '🙈🙈🙈'; //••••••
 export let areValuesHidden = false;
 
 function hideValues() {
-    updateStats();
+    updateBalanceOnUI();
     renderTransactionTable(currentFilter);
 }
 

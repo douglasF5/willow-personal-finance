@@ -1,28 +1,17 @@
 import smask from '../utils/field-masking.js';
+import { showModal, hideModal } from '../modal.js';
 
 //TGGLE MODAL VISIBILITY
 const closeButton = document.getElementById('close-button-newtransaction-modal');
 const modalTrigger = document.getElementById('button-add-new-transaction');
-const newTransactionModal = document.getElementById('new-transaction-modal');
 
-function showModal() {
-    newTransactionModal.setAttribute("data-is-hidden", "false");
-}
+modalTrigger.onclick = () => {
+    showModal('new-transaction-modal');
+};
 
-export function hideModal() {
-    newTransactionModal.classList.add('fade-out-modal');
-    setTimeout(() => {
-        newTransactionModal.classList.remove('fade-out-modal');
-        newTransactionModal.setAttribute("data-is-hidden", "true");
-    }, 200);
-}
-
-modalTrigger.onclick = showModal;
-closeButton.onclick = hideModal;
-
-newTransactionModal.onclick = (e) => {
-    if(e.target === newTransactionModal) hideModal();
-}
+closeButton.onclick = () => {
+    hideModal('new-transaction-modal');
+};
 
 //GO-AWAY CARD
 export const modalInputTextFields = document.querySelectorAll('.text-input-container');

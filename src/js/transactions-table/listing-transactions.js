@@ -1,6 +1,6 @@
 import { transactionsData } from "../transactions-data.js";
 import { toTitleCaseWord, formatDate } from '../utils/utils.js';
-import { updateStats } from "../stats.js";
+import { updateBalanceOnUI } from "../stats.js";
 import { areValuesHidden, HIDDEN_VALUE_PLACEHOLDER } from "../hide-values.js";
 
 export let transactionsDataState = [...transactionsData] || [];
@@ -107,9 +107,9 @@ export function addNewTransaction(data) {
 
     updateFilterOptions();
     renderTransactionTable(currentFilter);
-    updateStats();
+    updateBalanceOnUI();
 }
 
 updateFilterOptions();
 renderTransactionTable(currentFilter);
-updateStats();
+updateBalanceOnUI();

@@ -3,6 +3,7 @@
 @forward './components/hero-section';
 @forward './components/transactions-table';
 @forward './components/new-transaction-modal';
+@forward './components/balance-details-modal';
 
 @use "./base/colors";
 @use "./base/text";

@@ -10,27 +10,54 @@ const formatStatsAmount = new Intl.NumberFormat("pt-BR", {
 export function getStats() {
     if(areValuesHidden) {
         return {
-            income: HIDDEN_VALUE_PLACEHOLDER,
-            expenses: HIDDEN_VALUE_PLACEHOLDER,
-            balance: HIDDEN_VALUE_PLACEHOLDER
+            income: {
+                amount: HIDDEN_VALUE_PLACEHOLDER,
+                count: HIDDEN_VALUE_PLACEHOLDER[0]
+            },
+            expenses: {
+                amount: HIDDEN_VALUE_PLACEHOLDER,
+                count: HIDDEN_VALUE_PLACEHOLDER[0]
+            },
+            balance: {
+                amount: HIDDEN_VALUE_PLACEHOLDER,
+                count: HIDDEN_VALUE_PLACEHOLDER[0]
+            }
         };
     }
 
     let stats = {
-        income: 0,
-        expenses: 0,
-        balance: 0
+        income: {
+            amount: 0,
+            count: 0
+        },
+        expenses: {
+            amount: 0,
+            count: 0
+        },
+        balance: {
+            amount: 0,
+            count: 0
+        }
     }
 
     transactionsDataState.forEach(transaction => {
-        if(transaction.type === 'income') stats.income += transaction.amount;
-        if(transaction.type === 'expense') stats.expenses += transaction.amount;
-        stats.balance += transaction.amount;
+        if(transaction.type === 'income') {
+            stats.income.amount += transaction.amount;
+            stats.income.count++;
+        }
+
+        if(transaction.type === 'expense') {
+            stats.expenses.amount += transaction.amount;
+            stats.expenses.count++;
+        }
+
+        stats.balance.amount += transaction.amount;
+        stats.balance.count++;
     });
 
     return stats;
 }
 
-export function updateStats() {
-    totalBalanceEl.innerText = areValuesHidden ? getStats().balance :formatStatsAmount.format(getStats().balance);
+export function updateBalanceOnUI() {
+    totalBalanceEl.innerText = areValuesHidden ? getStats().balance.amount :formatStatsAmount.format(getStats().balance.amount);
 }

@@ -1,0 +1,58 @@
+@forward './modal';
+
+@use '../base/utilities' as u;
+@use '../base/text' as t;
+@use './button' as b;
+
+.balance-details-modal-content {
+    position: absolute;
+    min-width: 388px;
+    top: min(100px, 20vh);
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: u.toRem(40);
+    padding: u.toRem(40);
+    transform: translateX(-50%);
+    border-radius: 16px;
+    overflow: hidden;
+    background-color: var(--c-surface-primary);
+}
+
+.title-balance-details-modal {
+    @include t.heading("L");
+}
+
+.body-balance-details-modal{
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--c-outline-primary);
+}
+
+.content-row-balance-details-modal {
+    display: flex;
+    justify-content: space-between;
+    padding: u.toRem(16) 0;
+    border-bottom: 1px solid var(--c-outline-primary);
+}
+
+.stat-title-balance-details-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: u.toRem(12);
+
+    h3, strong {
+        @include t.base("L", "semibold", "one-liner");
+    }
+
+    p {
+        @include t.base("S", "regular", "one-liner");
+        color: var(--c-on-surface-tertiary);
+    }
+}
+
+.dismiss-button-balance-details-modal {
+    @include b.btn;
+    @include b.tertiary-button;
+}

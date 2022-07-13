@@ -1,19 +1,11 @@
 @forward './input-field';
+@forward '../components/modal';
+@forward './modal';
 
 @use '../base/utilities' as u;
 @use '../base/text' as t;
 @use '../components/button' as b;
 @use '../components/icon' as i;
-
-.new-transaction-modal-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.4);
-    animation: fade-in 100ms ease-in forwards;
-}
 
 .fade-out-modal {
     animation: fade-out 100ms ease-in forwards;
@@ -27,14 +19,6 @@
 @keyframes fade-out {
     0% { opacity: 100%;}
     100% { opacity: 0%; }
-}
-
-.new-transaction-modal-container[data-is-hidden="true"] {
-    display: none;
-}
-
-.new-transaction-modal-container[data-is-hidden="false"] {
-    display: block;
 }
 
 .under-layer-modal-content {
