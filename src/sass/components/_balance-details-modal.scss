@@ -17,6 +17,10 @@
     border-radius: 16px;
     overflow: hidden;
     background-color: var(--c-surface-primary);
+    animation-name: slide-in-modal;
+    animation-duration: 100ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
 }
 
 .title-balance-details-modal {

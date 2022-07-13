@@ -31,6 +31,15 @@
     border-radius: 16px;
     overflow: hidden;
     background-color: var(--c-magenta-accent);
+    animation-name: slide-in-modal;
+    animation-duration: 100ms;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slide-in-modal {
+    0% { transform: translate(-50%, 10px); }
+    100% { transform: translate(-50%, 0); }
 }
 
 .under-layer-modal-content.success {
