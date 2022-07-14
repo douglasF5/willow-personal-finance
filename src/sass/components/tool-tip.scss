@@ -1,7 +1,7 @@
 @use '../base/text' as t;
 @use '../base/utilities' as u;
 
-.has-tool-tip::after {
+.has-tool-tip:hover::after {
     @include t.mini("L", "medium", "one-liner");
 
     position: absolute;

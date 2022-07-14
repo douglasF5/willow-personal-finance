@@ -5,7 +5,7 @@ export function setUpToolTip(element, content) {
         element.classList.add('has-tool-tip');
     });
 
-    element.addEventListener('blur', () => {
+    element.addEventListener('mouseout', () => {
         element.classList.remove('has-tool-tip');
     });
 }
