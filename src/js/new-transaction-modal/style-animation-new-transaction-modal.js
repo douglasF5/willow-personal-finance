@@ -1,7 +1,7 @@
 import smask from '../utils/field-masking.js';
 import { showModal, hideModal } from '../modal.js';
 
-//TGGLE MODAL VISIBILITY
+//TOGGLE MODAL VISIBILITY
 const closeButton = document.getElementById('close-button-newtransaction-modal');
 const modalTrigger = document.getElementById('button-add-new-transaction');
 

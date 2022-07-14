@@ -1,11 +1,15 @@
 import { updateBalanceOnUI } from "./stats.js";
-import { renderTransactionTable, currentFilter } from './transactions-table/listing-transactions.js';
+import { renderTransactionTable, updateFilterOptions, currentFilter } from './transactions-table/listing-transactions.js';
 
-export const HIDDEN_VALUE_PLACEHOLDER = '🙈🙈🙈'; //••••••
+export const textPlaceholder = {
+    hiddenValue: '🙈',
+    hiddenValues: '🙈🙈🙈'
+}; //••••••
 export let areValuesHidden = false;
 
 function hideValues() {
     updateBalanceOnUI();
+    updateFilterOptions();
     renderTransactionTable(currentFilter);
 }
 

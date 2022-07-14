@@ -26,5 +26,5 @@
 }
 
 .icon-button-theme {
-    @include icon.icon(utils.toRem(16), --c-on-surface-primary);
+    @include icon.icon(utils.toRem(16), var(--c-on-surface-primary));
 }

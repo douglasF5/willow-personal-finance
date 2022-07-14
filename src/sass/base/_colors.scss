@@ -1,26 +1,86 @@
-$base-colors: (
+$theme-colors: (
     //ACCENT MAGENTA
-    "magenta-accent": #DB004C,
-    "magenta-accent-container-primary": #DB004C,
-    "magenta-accent-container-secondary": rgba(219, 0, 76, 0.12),
-    "on-magenta-accent-container-primary": #FFFFFF,
+    "magenta-accent": (
+        "light": #DB004C,
+        "dark": #FF8FA4
+    ),
+    "magenta-accent-container-secondary": (
+        "light": rgba(219, 0, 76, 0.12),
+        "dark": rgba(255, 143, 164, 0.2)
+    ),
     //ACCENT ORANGE
-    "orange-accent": #541F0E,
-    "orange-accent-container-primary": #FF6D59,
-    "orange-accent-container-secondary": rgba(255, 109, 89, 0.2),
+    "orange-accent": (
+        "light": #541F0E,
+        "dark": #FFC9C2
+    ),
     //ACCENT MINT
-    "mint-accent": #093E31,
-    "mint-accent-container-primary": #1CD6A9,
-    "mint-accent-container-secondary": rgba(28, 214, 169, 0.2),
+    "mint-accent": (
+        "light": #093E31,
+        "dark": #B1F4E4
+    ),
     //SURFACE
-    "surface-primary": #FFFFFF,
-    "surface-secondary": rgba(28, 28, 28, 0.08),
-    "surface-tertiary": rgba(28, 28, 28, 0.12),
+    "surface-primary": (
+        "light": #FFFFFF,
+        "dark": #1C1C1C
+    ),
+    "surface-secondary": (
+        "light": rgba(28, 28, 28, 0.08),
+        "dark": #2A2A2A
+    ),
+    "surface-tertiary": (
+        "light": rgba(28, 28, 28, 0.12),
+        "dark": rgba(255, 255, 255, 0.11)
+    ),
+    "surface-inverted-primary": (
+        "light": #1C1C1C,
+        "dark": rgba(255, 255, 255, 0.90)
+    ),
+    "surface-hero-section": (
+        "light": linear-gradient(180deg, #FFFFFF 0%, #F0F0F0 100%),
+        "dark": linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.03) 100%)
+    ),
+    "surface-submitted-form": (
+        "light": #037B49,
+        "dark": #18312B
+    ),
     //ON SURFACE
-    "on-surface-primary": #1C1C1C,
-    "on-surface-secondary": #595959,
-    "on-surface-tertiary": #8D8D8D,
+    "on-surface-primary": (
+        "light": #1C1C1C,
+        "dark": #FFFFFF
+    ),
+    "on-surface-secondary": (
+        "light": #595959,
+        "dark": rgba(255, 255, 255, 0.73)
+    ),
+    "on-surface-tertiary": (
+        "light": #8D8D8D,
+        "dark": rgba(255, 255, 255, 0.5)
+    ),
+    "on-surface-submitted-form": (
+        "light": #FFFFFF,
+        "dark": #53EBC6
+    ),
+    "on-surface-inverted-primary": (
+        "light": #FFFFFF,
+        "dark": #1C1C1C
+    ),
     //OUTLINE
-    "outline-primary": rgba(28, 28, 28, 0.18),
-    "outline-secondary": rgba(28, 28, 28, 0.4)
+    "outline-primary": (
+        "light": rgba(28, 28, 28, 0.18),
+        "dark": rgba(255, 255, 255, 0.18)
+    ),
+    "outline-secondary": (
+        "light": rgba(28, 28, 28, 0.4),
+        "dark": rgba(255, 255, 255, 0.24)
+    )
+);
+
+$common-colors: (
+    //ACCENT
+    "magenta-accent-container-primary": #DB004C,
+    "on-magenta-accent-container-primary": #FFFFFF,
+    "orange-accent-container-primary": #FF6D59,
+    "orange-accent-container-secondary": rgba(255, 109, 89, 0.16),
+    "mint-accent-container-primary": #1CD6A9,
+    "mint-accent-container-secondary": rgba(28, 214, 169, 0.16)
 );

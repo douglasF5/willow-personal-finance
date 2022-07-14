@@ -30,7 +30,7 @@
     transform: translateX(-50%);
     border-radius: 16px;
     overflow: hidden;
-    background-color: var(--c-magenta-accent);
+    background-color: var(--c-magenta-accent-container-primary);
     animation-name: slide-in-modal;
     animation-duration: 100ms;
     animation-timing-function: ease-out;
@@ -43,7 +43,7 @@
 }
 
 .under-layer-modal-content.success {
-    background-color: #037B49;
+    background-color: var(--c-surface-submitted-form);
 }
 
 .success-message {

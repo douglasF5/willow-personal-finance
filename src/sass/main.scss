@@ -11,15 +11,27 @@
 @use './base/utilities' as u;
 
 :root {
-    // SETTING UP THEMABLE COLOR CUSTOM PROPERTIES
-    @each $color, $value in colors.$base-colors {
-      --c-#{$color}: #{$value};
+    // SETTING COMMON COLOR CUSTOM PROPERTIES
+    @each $color, $value in colors.$common-colors {
+        --c-#{$color}: #{$value};
     }
 }
 
 body {
+    // SETTING UP THEMABLE COLOR CUSTOM PROPERTIES
+    @each $color, $theme in colors.$theme-colors {
+        --c-#{$color}: #{map-get($theme, "light")};
+    }
+    
     font-family: text.$font-face;
     color: var(--c-on-surface-primary);
+    background-color: var(--c-surface-primary);
+}
+
+body.dark-theme {
+    @each $color, $theme in colors.$theme-colors {
+        --c-#{$color}: #{map-get($theme, "dark")};
+    }
 }
 
 h1 {

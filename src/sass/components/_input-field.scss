@@ -40,6 +40,8 @@
     padding: u.toRem(14) 0;
 	border: none;
 	font-size: 16px;
+	background-color: transparent;
+	color: var(--c-on-surface-primary);
 
     &:focus-visible {
         outline: none;

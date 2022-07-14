@@ -1,5 +1,5 @@
 import { transactionsDataState } from "./transactions-table/listing-transactions.js";
-import { areValuesHidden, HIDDEN_VALUE_PLACEHOLDER } from "./hide-values.js";
+import { areValuesHidden, textPlaceholder } from "./hide-values.js";
 
 const totalBalanceEl = document.getElementById('total-balance-amount');
 const formatStatsAmount = new Intl.NumberFormat("pt-BR", {
@@ -11,16 +11,16 @@ export function getStats() {
     if(areValuesHidden) {
         return {
             income: {
-                amount: HIDDEN_VALUE_PLACEHOLDER,
-                count: HIDDEN_VALUE_PLACEHOLDER[0]
+                amount: textPlaceholder.hiddenValues,
+                count: textPlaceholder.hiddenValue
             },
             expenses: {
-                amount: HIDDEN_VALUE_PLACEHOLDER,
-                count: HIDDEN_VALUE_PLACEHOLDER[0]
+                amount: textPlaceholder.hiddenValues,
+                count: textPlaceholder.hiddenValue
             },
             balance: {
-                amount: HIDDEN_VALUE_PLACEHOLDER,
-                count: HIDDEN_VALUE_PLACEHOLDER[0]
+                amount: textPlaceholder.hiddenValues,
+                count: textPlaceholder.hiddenValue
             }
         };
     }

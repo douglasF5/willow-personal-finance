@@ -1,4 +1,4 @@
-//TGGLE MODAL VISIBILITY
+//TOGGLE MODAL VISIBILITY
 let modalOpen = null;
 
 export function showModal(elementId) {

@@ -1,7 +1,7 @@
 import { transactionsData } from "../transactions-data.js";
 import { toTitleCaseWord, formatDate } from '../utils/utils.js';
 import { updateBalanceOnUI } from "../stats.js";
-import { areValuesHidden, HIDDEN_VALUE_PLACEHOLDER } from "../hide-values.js";
+import { areValuesHidden, textPlaceholder } from "../hide-values.js";
 
 export let transactionsDataState = [...transactionsData] || [];
 const transactionsTableEl = document.getElementById('transactions-table');
@@ -11,11 +11,17 @@ export let currentFilter = 'all';
 const filterOptionsEl = document.getElementById('filter-controls-transactions-table').children;
 const filterOptionLabels = ["All", "Income", "Expense"];
 
-function updateFilterOptions() {
+export function updateFilterOptions() {
 
     for(let i = 0; i < filterOptionsEl.length; i++) {
         const field = filterOptionsEl[i].children[0];
         const label = filterOptionsEl[i].children[1];
+
+        if(areValuesHidden) {
+            label.innerText = filterOptionLabels[i];
+            continue;
+        }
+
         const { count } = filterTransactionsData(field.value);
         
         label.innerText = count ? `${filterOptionLabels[i]} · ${count}` : filterOptionLabels[i];
@@ -59,7 +65,7 @@ function getTransactionRowEl(transactionData) {
         </svg>
         <span>${toTitleCaseWord(transactionData.type)}</span>
     </div>
-    <strong class="amount-transaction">${!areValuesHidden ? formatTransactionAmount.format(transactionData.amount) : HIDDEN_VALUE_PLACEHOLDER}</strong>`;
+    <strong class="amount-transaction">${!areValuesHidden ? formatTransactionAmount.format(transactionData.amount) : textPlaceholder.hiddenValues}</strong>`;
 
     return transactionRowContainer;
 }
@@ -84,7 +90,7 @@ export function renderTransactionTable(filter, data=filterTransactionsData(filte
                 id: transaction.id,
                 type: transaction.type,
                 title: transaction.title,
-                amount: HIDDEN_VALUE_PLACEHOLDER,
+                amount: textPlaceholder.hiddenValues,
                 date: transaction.date
             };
         });    

@@ -7,13 +7,16 @@
     display: flex;
     flex-direction: column;
     gap: u.toRem(24);
-    padding: u.toRem(32) 0;
 }
 
 .header-transactions-table {
+    position: sticky;
+    top: 0;
+    padding: 32px 0 24px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: var(--c-surface-primary);
 }
 
 .title-transactions-table {
@@ -48,8 +51,8 @@
 }
 
 .radio-filter-option:checked + .lable-filter-option {
-    color: white;
-    background-color: var(--c-on-surface-primary);
+    color: var(--c-on-surface-inverted-primary);
+    background-color: var(--c-surface-inverted-primary);
 }
 
 .transactions-table {

@@ -1,6 +1,7 @@
 import { showModal, hideModal } from './modal.js';
 import { getStats } from './stats.js';
 import { toTitleCaseWord } from './utils/utils.js';
+import { areValuesHidden } from './hide-values.js';
 
 const openModalTrigger = document.getElementById('button-see-details');
 const closeModalTrigger = document.getElementById('dismiss-button-balance-details-modal');
@@ -28,7 +29,7 @@ function updateBodyContent() {
         <h3>(${mathSymbols[statKey]}) Total ${toTitleCaseWord(statKey)}</h3>
         <p>${stat.count} transaction${stat.count !== 1 ? 's' : ''}</p>
     </div>
-    <strong>${formatStatAmount.format(stat.amount)}</strong>`;
+    <strong>${areValuesHidden ? stat.amount : formatStatAmount.format(stat.amount)}</strong>`;
         modalBodyContentContainer.append(containerEl);
     }
 }
