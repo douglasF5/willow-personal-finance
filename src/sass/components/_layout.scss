@@ -1,10 +1,17 @@
+@use '../base/breakpoints' as br;
+
 .page-wrapper {
     min-height: 120vh;
     padding-bottom: 48px;
 }
 
 .section-container {
+    min-width: 374px;
     padding: 0 48px;
+
+    @include br.custom(532) {
+        padding: 0 24px;
+    }
 }
 
 .content-container {

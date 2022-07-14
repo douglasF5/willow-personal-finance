@@ -16,6 +16,16 @@
     gap: utils.toRem(4);
 }
 
+.logo-symbol {
+    width: 25px;
+    fill: var(--c-on-surface-logo);
+}
+
+.logo-wordmark {
+    width: 69px;
+    fill: var(--c-on-surface-logo);
+}
+
 .theme-button {
     @include btn.btn;
     @include btn.icon-button-secondary(utils.toRem(36));

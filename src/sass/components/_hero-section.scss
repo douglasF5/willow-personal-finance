@@ -1,5 +1,6 @@
 @use '../base/utilities' as u;
 @use '../base/text' as t;
+@use '../base/breakpoints' as br;
 @use './button' as b;
 @use './icon' as i;
 
@@ -13,11 +14,26 @@
     justify-content: space-between;
     align-items: center;
     padding: u.toRem(80) 0;
+
+    @include br.custom(532) {
+        padding: u.toRem(60) 0;
+    }
 }
 
 .button-add-new-transaction {
     @include b.btn;
     @include b.primary-button;
+
+    @include br.custom(575) {
+        @include b.mobile-float-button;
+        position: fixed;
+        right: 16px;
+        bottom: 16px;
+
+        & span {
+            @include u.sr-only;
+        }
+    }
 }
 
 .icon-button-new-transaction {
@@ -39,6 +55,10 @@
     h2 {
         @include t.heading("S", "semibold", "one-liner");
     }
+
+    @include br.custom(532) {
+        font-size: u.toRem(18);
+    }
 }
 
 .hide-values-button {
@@ -58,6 +78,10 @@
 
 .total-balance-amount {
     @include t.display("L");
+
+    @include br.custom(532) {
+        font-size: u.toRem(32);
+    }
 }
 
 .see-details-button {

@@ -4,9 +4,12 @@
 @mixin btn {
     cursor: pointer;
     transition: transform 100ms ease-in-out;
+    white-space: nowrap;
   
-    &:hover {
-      transform: scale(1.01);
+    @media (hover: hover) {
+      &:hover {
+        transform: scale(1.01);
+      }
     }
 
     &:active {
@@ -28,6 +31,19 @@
   color: var(--c-on-magenta-accent-container-primary);
 }
 
+@mixin mobile-float-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: u.toRem(8);
+  width: u.toRem(52);
+  height: u.toRem(52);
+  border: none;
+  border-radius: 50%;
+  background-color: var(--c-magenta-accent-container-primary);
+  color: var(--c-on-magenta-accent-container-primary);
+}
+
 @mixin tertiary-button {
   @include t.base("L", "semibold", "one-liner");
 
@@ -42,8 +58,10 @@
   color: var(--c-magenta-accent);
   transition: background-color 100ms ease-in-out;
 
-  &:hover {
-    background-color: var(--c-magenta-accent-container-secondary);
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--c-magenta-accent-container-secondary);
+    }
   }
 }
 
@@ -60,13 +78,15 @@
   transition-duration: 100ms;
   transition-timing-function: ease-in-out;
 
-  &:hover {
-    color: var(--c-magenta-accent);
-    background-color: var(--c-magenta-accent-container-secondary);
-  }
-
-  &:hover > svg {
-    fill: var(--c-magenta-accent);
+  @media (hover: hover) {
+    &:hover {
+      color: var(--c-magenta-accent);
+      background-color: var(--c-magenta-accent-container-secondary);
+    }
+  
+    &:hover > svg {
+      fill: var(--c-magenta-accent);
+    }
   }
 }
 
@@ -83,13 +103,15 @@
   transition-duration: 100ms;
   transition-timing-function: ease-in-out;
 
-  &:hover {
-    color: var(--c-magenta-accent);
-    background-color: var(--c-magenta-accent-container-secondary);
-  }
-
-  &:hover > svg {
-    fill: var(--c-magenta-accent);
+  @media (hover: hover) {
+    &:hover {
+      color: var(--c-magenta-accent);
+      background-color: var(--c-magenta-accent-container-secondary);
+    }
+  
+    &:hover > svg {
+      fill: var(--c-magenta-accent);
+    }
   }
 }
 
@@ -106,7 +128,9 @@
   background-color: transparent;
   color: var(--c-on-surface-primary);
 
-  &:hover {
-    background-color: var(--c-surface-secondary);
+  @media (hover: hover) {
+    &:hover {
+      background-color: var(--c-surface-secondary);
+    }
   }
 }

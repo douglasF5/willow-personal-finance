@@ -16,10 +16,18 @@
         <header class="section-container">
             <div class="content-container top-bar">
                 <div class="logo-wrapper">
-                    <img src="./assets/logo-symbol-2.svg" alt="logo-symbol">
-                    <img src="./assets/logo-wordmark.svg" alt="logo-wordmark">
+                    <svg class="logo-symbol" alt="logo-symbol">
+                        <use
+                          xlink:href="assets/logo.svg#logo-symbol"
+                        />
+                    </svg>
+                    <svg class="logo-wordmark" alt="logo-wordmark">
+                        <use
+                          xlink:href="assets/logo.svg#logo-wordmark"
+                        />
+                    </svg>
                 </div>
-                <button class="theme-button has-tool-tip" id="theme-button">
+                <button class="theme-button" id="theme-button">
                     <svg class="icon-button-theme">
                         <use
                           xlink:href="assets/icons.svg#moon"
@@ -57,7 +65,7 @@
                             Balance details
                         </button>
                     </div>
-                    <button class="button-add-new-transaction" id="button-add-new-transaction" title="Add new transaction">New transaction
+                    <button class="button-add-new-transaction" id="button-add-new-transaction" title="Add new transaction"><span>New transaction</span>
                         <svg class="icon-button-new-transaction">
                             <use
                               xlink:href="assets/icons.svg#plus"
