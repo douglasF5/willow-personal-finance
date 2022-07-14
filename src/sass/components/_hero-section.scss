@@ -53,6 +53,7 @@
 .icon-button-hide-values {
     @include i.icon(u.toRem(20), var(--c-on-surface-secondary));
     transform: translateY(1%);
+    pointer-events: none;
 }
 
 .total-balance-amount {

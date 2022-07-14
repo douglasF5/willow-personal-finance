@@ -27,4 +27,5 @@
 
 .icon-button-theme {
     @include icon.icon(utils.toRem(16), var(--c-on-surface-primary));
+    pointer-events: none;
 }

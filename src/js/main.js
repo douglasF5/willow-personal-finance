@@ -5,5 +5,6 @@ import './hide-values.js';
 import './stats.js';
 import './transactions-table/listing-transactions.js';
 import './color-scheme.js';
+import './tool-tip.js';
 
 // console.log('hey');

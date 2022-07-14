@@ -1,0 +1,19 @@
+@use '../base/text' as t;
+@use '../base/utilities' as u;
+
+.has-tool-tip::after {
+    @include t.base("S", "medium", "one-liner");
+
+    position: absolute;
+    display: block;
+    content: attr(data-tool-tip);
+    padding: u.toRem(8);
+    margin-top: u.toRem(4);
+    width: max-content;
+    top: 100%;
+    background-color: var(--c-surface-inverted-primary);
+    color: var(--c-on-surface-inverted-primary);
+    border-radius: 4px;
+    animation: none;
+    pointer-events: none;
+}
