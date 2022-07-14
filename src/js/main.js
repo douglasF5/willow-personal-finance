@@ -4,6 +4,6 @@ import './balance-details-modal.js';
 import './hide-values.js';
 import './stats.js';
 import './transactions-table/listing-transactions.js';
-import './color-schema.js';
+import './color-scheme.js';
 
 // console.log('hey');
