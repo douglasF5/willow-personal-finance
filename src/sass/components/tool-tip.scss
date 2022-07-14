@@ -2,7 +2,7 @@
 @use '../base/utilities' as u;
 
 .has-tool-tip::after {
-    @include t.base("S", "medium", "one-liner");
+    @include t.mini("L", "medium", "one-liner");
 
     position: absolute;
     display: block;
