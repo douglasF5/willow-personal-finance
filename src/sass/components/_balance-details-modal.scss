@@ -6,7 +6,7 @@
 
 .balance-details-modal-content {
     position: absolute;
-    min-width: 388px;
+    min-width: min(388px, 95%);
     top: min(100px, 20vh);
     left: 50%;
     display: flex;
