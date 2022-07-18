@@ -25,7 +25,7 @@ Implemented features:
 <img src=".github/project-screenshot-1.png"><br>
 <img src=".github/project-screenshot-2.png"><br>
 <img src=".github/project-screenshot-3.png"><br>
-<img src=".github/adding-new-transaction.gif"><br>
+<img src=".github/add-new-transaction.gif"><br>
 <img src=".github/project-screenshot-4.png"><br>
 
 <br>
