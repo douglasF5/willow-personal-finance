@@ -9,7 +9,7 @@ import './tool-tip.js';
 
 // console.log('hey');
 window.addEventListener("keydown", (e) => {
-    if(e.key.toLocaleLowerCase() === 't' && e.ctrlKey) {
+    if(e.key.toLowerCase() === 't' && e.ctrlKey) {
         toggleTheme();
     }
 })
