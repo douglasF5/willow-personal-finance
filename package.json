@@ -19,7 +19,7 @@
         "watch": "npm-run-all --parallel watch:*",
         "serve": "browser-sync start --server public --files public",
         "start": "npm-run-all copy --parallel watch serve",
-        "build": "npm-run-all copy:html build:*",
+        "build": "npm-run-all copy build:*",
         "postbuild": "postcss public/css/*.css -u autoprefixer cssnano -r --no-map"
     },
     "dependencies": {
