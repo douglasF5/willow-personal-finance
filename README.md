@@ -1,15 +1,20 @@
 # Willow Personal Finance - Exercise from Warren Tech Academy
 
-Tools:
+* [About](#about)
+* [Project screenshots](#project-screenshots)
+* [Installation](#installation)
+* [Extra notes](#extra-notes)
+
+## About
+
+#### Tools:
 
 - HTML
 - CSS (SASS)
 - JavaScript
 - Modular approach using SASS and JavaScript native modules for styling and scripting, respectively
 
-<br>
-
-Implemented features:
+#### Implemented features:
 
 - Adding new transactions via modal component
 - Listing and filtering transactions
@@ -27,6 +32,14 @@ Implemented features:
 <img src=".github/project-screenshot-3.png"><br>
 <img width=680 src=".github/add-new-transaction.gif"><br>
 <img src=".github/project-screenshot-4.png"><br>
+
+<br>
+
+## Installation
+
+- Install it by running `npm install` in the project's root directory
+- Run the project with `npm start`
+- Build the project with `npm run build`
 
 <br>
 
