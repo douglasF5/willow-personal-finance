@@ -1,12 +1,10 @@
-const http = require('http');
+const express = require('express')
 const fs = require('fs/promises');
 
-const hostname = '127.0.0.1';
 const port = 3000;
+const server = express();
 
-const server = http.createServer(processReq);
-
-function processReq(req, res) {
+server.get('/', (req, res) => {
     fs.readFile('./public/index.html', 'utf-8')
         .then(content => {
             res.statusCode = 200;
@@ -14,8 +12,8 @@ function processReq(req, res) {
             res.write(content);
             res.end();
         });
-}
+});
 
-server.listen(port, hostname, () => {
-    console.log(`Server running on por ${hostname}:${port}`);
+server.listen(port, () => {
+    console.log(`Server running on port http://localhost:${port}`);
 });
