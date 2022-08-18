@@ -7,7 +7,6 @@ import './transactions-table/listing-transactions.js';
 import { toggleTheme } from './color-scheme.js';
 import './tool-tip.js';
 
-// console.log('hey');
 window.addEventListener("keydown", (e) => {
     if(e.key.toLowerCase() === 't' && e.ctrlKey) {
         toggleTheme();
