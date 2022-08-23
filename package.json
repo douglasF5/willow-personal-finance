@@ -5,6 +5,7 @@
     "main": "public/index.html",
     "author": "Douglas Ferreira",
     "scripts": {
+        "dev": "nodemon app.js",
         "build:sass": "sass  --no-source-map client/sass:public/css",
         "copy:html": "copyfiles -u 1 ./client/*.html public",
         "copy:favicon": "copyfiles -u 1 ./client/favicon.png public",
