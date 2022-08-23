@@ -1,19 +1,13 @@
 const express = require('express')
-const fs = require('fs/promises');
-
+const app = express();
 const port = 3000;
-const server = express();
 
-server.get('/', (req, res) => {
-    fs.readFile('./public/index.html', 'utf-8')
-        .then(content => {
-            res.statusCode = 200;
-            res.setHeader('Content-Type', 'text/html');
-            res.write(content);
-            res.end();
-        });
-});
+// app.get('/', (req, res) => {
+//     res.sendFile(`${__dirname}/public/index.html`);
+// });
 
-server.listen(port, () => {
+app.use(express.static("public"));
+
+app.listen(port, () => {
     console.log(`Server running on port http://localhost:${port}`);
 });
