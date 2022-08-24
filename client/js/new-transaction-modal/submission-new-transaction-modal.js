@@ -1,6 +1,6 @@
 import { modalInputTextFields } from "./style-animation-new-transaction-modal.js";
 import { hideModal } from '../modal.js';
-import { addNewTransaction, filterTransactionsData } from '../transactions-table/listing-transactions.js';
+import { addNewTransaction, filterTransactionsData } from '../listing-transactions.js';
 import { formatDate } from "../utils/utils.js";
 import smask from '../utils/field-masking.js';
 

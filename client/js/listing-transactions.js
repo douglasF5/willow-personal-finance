@@ -1,7 +1,7 @@
-import { transactionsData } from "../transactions-data.js";
-import { toTitleCaseWord, formatDate } from '../utils/utils.js';
-import { updateBalanceOnUI } from "../stats.js";
-import { areValuesHidden, textPlaceholder } from "../hide-values.js";
+import { transactionsData } from "./transactions-data.js";
+import { toTitleCaseWord, formatDate } from './utils/utils.js';
+import { updateBalanceOnUI } from "./stats.js";
+import { areValuesHidden, textPlaceholder } from "./hide-values.js";
 
 export let transactionsDataState = [...transactionsData] || [];
 const transactionsTableEl = document.getElementById('transactions-table');

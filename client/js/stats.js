@@ -1,4 +1,4 @@
-import { transactionsDataState } from "./transactions-table/listing-transactions.js";
+import { transactionsDataState } from "./listing-transactions.js";
 import { areValuesHidden, textPlaceholder } from "./hide-values.js";
 
 const totalBalanceEl = document.getElementById('total-balance-amount');

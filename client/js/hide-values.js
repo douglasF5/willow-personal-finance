@@ -1,5 +1,5 @@
 import { updateBalanceOnUI } from "./stats.js";
-import { renderTransactionTable, updateFilterOptions, currentFilter } from './transactions-table/listing-transactions.js';
+import { renderTransactionTable, updateFilterOptions, currentFilter } from './listing-transactions.js';
 import { setUpToolTip, updateToolTip } from "./tool-tip.js";
 
 export const textPlaceholder = {
