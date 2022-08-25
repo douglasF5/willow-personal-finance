@@ -1,5 +1,5 @@
 import { showModal, hideModal } from './modal.js';
-import { getStats } from './stats.js';
+import { transactionsDataState } from './listing-transactions.js';
 import { toTitleCaseWord } from './utils/utils.js';
 import { areValuesHidden } from './hide-values.js';
 
@@ -8,7 +8,7 @@ const closeModalTrigger = document.getElementById('dismiss-button-balance-detail
 const modalBodyContentContainer = document.getElementById('body-balance-details-modal');
 
 function updateBodyContent() {
-    let statsData = getStats();
+    let statsData = transactionsDataState.stats;
     modalBodyContentContainer.innerHTML = "";
     const formatStatAmount = new Intl.NumberFormat("pt-BR", {
         style: "currency",

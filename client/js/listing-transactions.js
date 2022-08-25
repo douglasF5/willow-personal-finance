@@ -3,7 +3,7 @@ import { toTitleCaseWord, formatDate } from './utils/utils.js';
 import { updateBalanceOnUI } from "./stats.js";
 import { areValuesHidden, textPlaceholder } from "./hide-values.js";
 
-export let transactionsDataState = [...transactionsData] || [];
+export let transactionsDataState = [];
 const transactionsTableEl = document.getElementById('transactions-table');
 export let currentFilter = 'all';
 
@@ -108,14 +108,33 @@ export function renderTransactionTable(filter, data=filterTransactionsData(filte
 }
 
 //ADD NEW TRANSACTION
-export function addNewTransaction(data) {
-    transactionsDataState = [...transactionsDataState, data];
+export async function addNewTransaction(data) {
+    // transactionsDataState = [...transactionsDataState, data];
 
-    updateFilterOptions();
-    renderTransactionTable(currentFilter);
-    updateBalanceOnUI();
+    const request = {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+            "content-type": "application/json"
+        }
+    };
+
+    await fetch('/transactions', request);
+
+    getData();
 }
 
-updateFilterOptions();
-renderTransactionTable(currentFilter);
-updateBalanceOnUI();
+async function getData() {
+    const URL = 'http://localhost:3000/transactions';
+  
+    let reponse = await fetch(URL);
+    let data = await reponse.json();
+
+    transactionsDataState = [...data.transactions];
+    updateFilterOptions();
+    renderTransactionTable(currentFilter);
+    updateBalanceOnUI(data.stats.balance.amount);
+    // console.log(data);
+}
+
+getData();

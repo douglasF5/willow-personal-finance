@@ -1,7 +1,7 @@
 import { setUpToolTip, updateToolTip } from "./tool-tip.js";
 
 const themeToggleEl = document.getElementById('theme-button');
-let currentTheme = 'light';
+let currentTheme = 'dark';
 
 export function toggleTheme() {
     document.body.classList.toggle('dark-theme');

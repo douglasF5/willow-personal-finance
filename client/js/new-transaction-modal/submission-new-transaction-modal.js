@@ -67,5 +67,5 @@ formsNewTransactionModal.addEventListener('submit', (e) => {
         date: formatDate(formData.date, 'yyyy-mm-dd'),
     });
 
-    console.log(formData);
+    // console.log(formData);
 })
