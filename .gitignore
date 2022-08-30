@@ -2,3 +2,4 @@ node_modules/
 individual-icons/
 public/
 .DS_Store
+.env

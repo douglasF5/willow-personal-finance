@@ -1,4 +1,5 @@
 import { updateBalanceOnUI } from "./stats.js";
+import { finance } from './finance-context.js';
 import { renderTransactionTable, updateFilterOptions, currentFilter } from './listing-transactions.js';
 import { setUpToolTip, updateToolTip } from "./tool-tip.js";
 
@@ -9,7 +10,7 @@ export const textPlaceholder = {
 export let areValuesHidden = false;
 
 function hideValues() {
-    updateBalanceOnUI();
+    updateBalanceOnUI(finance.stats.balance.amount);
     updateFilterOptions();
     renderTransactionTable(currentFilter);
 }

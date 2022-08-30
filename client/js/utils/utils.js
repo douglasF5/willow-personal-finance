@@ -43,3 +43,27 @@ function numberToMonth(monthNum) {
   }
   return monthsMMM[monthNum];
 }
+
+//USE STATE HOOK
+export function useState(initialValue){
+  let currentState = { current: initialValue, prev: null };
+
+  function setState(newValue) {
+    let newState = { current: newValue, prev: currentState.current };
+    Object.assign(currentState, newState);
+  }
+
+  return [currentState, setState];
+}
+
+//USE FINANCE HOOK
+export function useFinance(){
+  let currentState = { stats: {}, transactions: [] };
+
+  function setState({ newStats, newTransactions }) {
+    let newState = { stats: newStats, transactions: newTransactions };
+    Object.assign(currentState, newState);
+  }
+
+  return [currentState, setState];
+}

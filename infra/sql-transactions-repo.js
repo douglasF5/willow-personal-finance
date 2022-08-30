@@ -1,21 +1,10 @@
-const finance = {
-    transactions: [
-        {
-            id: 1,
-            type: "expense",
-            title: 'Electricity bill',
-            amount: -112.38,
-            date: '2021-06-10',
-        },
-        {
-            id: 2,
-            type: "income",
-            title: 'Salary',
-            amount: 9540.62,
-            date: '2021-06-07',
-        }
-    ],
-    stats: {
+
+const { Pool } = require("pg");
+const pool = new Pool();
+
+function getUpdatedStats(transactions) {
+
+    const stats = {
         income: {
             amount: 0,
             count: 0
@@ -29,10 +18,6 @@ const finance = {
             count: 0
         }
     }
-}
-
-function getUpdatedStats() {
-    const { transactions, stats } = finance;
 
     transactions.forEach(transaction => {
         if(transaction.type === 'income') {
@@ -52,16 +37,29 @@ function getUpdatedStats() {
     return stats;
 }
 
-function getFinanceData() {
+async function getFinanceData() {
+    const queryResult = await pool.query('SELECT * FROM transaction');
+
     return {
-        transactions: finance.transactions,
-        stats: getUpdatedStats()
+        transactions: queryResult.rows,
+        stats: getUpdatedStats(queryResult.rows)
     };
 }
 
-function createTransaction(transactionData) {
-    const transactionsList = finance.transactions;
-    transactionsList.push(transactionData);
+async function createTransaction(transactionData) {
+
+    const query = `INSERT INTO transaction(amount, title, date, type)
+    VALUES ($1, $2, $3, $4) RETURNING *`
+
+    const data = [
+        transactionData.amount,
+        transactionData.title,
+        transactionData.date,
+        transactionData.type
+    ];
+
+    await pool.query(query, data);
+    // transactionsList.push(transactionData);
 }
 
 module.exports = {

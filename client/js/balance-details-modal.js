@@ -1,5 +1,6 @@
 import { showModal, hideModal } from './modal.js';
-import { transactionsDataState } from './listing-transactions.js';
+import { getHiddenStats } from './stats.js';
+import { finance } from './finance-context.js';
 import { toTitleCaseWord } from './utils/utils.js';
 import { areValuesHidden } from './hide-values.js';
 
@@ -8,7 +9,9 @@ const closeModalTrigger = document.getElementById('dismiss-button-balance-detail
 const modalBodyContentContainer = document.getElementById('body-balance-details-modal');
 
 function updateBodyContent() {
-    let statsData = transactionsDataState.stats;
+    let statsData = finance.stats;
+    let hiddenStats = getHiddenStats();
+    console.log(statsData);
     modalBodyContentContainer.innerHTML = "";
     const formatStatAmount = new Intl.NumberFormat("pt-BR", {
         style: "currency",
@@ -29,7 +32,7 @@ function updateBodyContent() {
         <h3>(${mathSymbols[statKey]}) Total ${toTitleCaseWord(statKey)}</h3>
         <p>${stat.count} transaction${stat.count !== 1 ? 's' : ''}</p>
     </div>
-    <strong>${areValuesHidden ? stat.amount : formatStatAmount.format(stat.amount)}</strong>`;
+    <strong>${areValuesHidden ? hiddenStats[statKey].amount : formatStatAmount.format(stat.amount)}</strong>`;
         modalBodyContentContainer.append(containerEl);
     }
 }

@@ -1,5 +1,5 @@
-import { transactionsData } from "./transactions-data.js";
-import { toTitleCaseWord, formatDate } from './utils/utils.js';
+import { finance, setFinance } from './finance-context.js';
+import { toTitleCaseWord, formatDate, useState } from './utils/utils.js';
 import { updateBalanceOnUI } from "./stats.js";
 import { areValuesHidden, textPlaceholder } from "./hide-values.js";
 
@@ -72,8 +72,8 @@ function getTransactionRowEl(transactionData) {
 
 export function filterTransactionsData(filter) {
     const transactions = filter === 'all'
-        ? transactionsDataState
-        : transactionsDataState.filter(transaction => transaction.type === filter);
+        ? finance.transactions
+        : finance.transactions.filter(transaction => transaction.type === filter);
 
     return {transactions, count: transactions.length};
 }
@@ -109,7 +109,6 @@ export function renderTransactionTable(filter, data=filterTransactionsData(filte
 
 //ADD NEW TRANSACTION
 export async function addNewTransaction(data) {
-    // transactionsDataState = [...transactionsDataState, data];
 
     const request = {
         method: 'POST',
@@ -124,17 +123,18 @@ export async function addNewTransaction(data) {
     getData();
 }
 
+//GET DATA
 async function getData() {
     const URL = 'http://localhost:3000/transactions';
   
     let reponse = await fetch(URL);
     let data = await reponse.json();
 
-    transactionsDataState = [...data.transactions];
+    setFinance(data);
+
     updateFilterOptions();
     renderTransactionTable(currentFilter);
-    updateBalanceOnUI(data.stats.balance.amount);
-    // console.log(data);
+    updateBalanceOnUI(finance.stats.balance.amount);
 }
 
 getData();
