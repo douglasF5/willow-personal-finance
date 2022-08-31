@@ -1,11 +1,11 @@
-//FORMAT TEXT
+//FORMATTING TEXT
 export function toTitleCaseWord(word) {
 	let first = word[0];
   let rest = word.substr(1, word.length);
   return first.toUpperCase() + rest;
 }
 
-//FORMAT DATE
+//FORMATING DATE
 export function formatDate(date, pattern='Mmm dd, yyyy') {
   let dateArray;
   let formattedDate;
@@ -44,26 +44,40 @@ function numberToMonth(monthNum) {
   return monthsMMM[monthNum];
 }
 
-//USE STATE HOOK
-export function useState(initialValue){
-  let currentState = { current: initialValue, prev: null };
-
-  function setState(newValue) {
-    let newState = { current: newValue, prev: currentState.current };
-    Object.assign(currentState, newState);
+//GETTING ELEMENTS
+export function get(
+  query,
+  getAll = false
+) {
+  if (getAll) {
+    const elementCollection = document.querySelectorAll(query);
+    return elementCollection;
+  } else {
+    const element = document.querySelector(query);
+    return element;
   }
-
-  return [currentState, setState];
 }
 
-//USE FINANCE HOOK
-export function useFinance(){
-  let currentState = { stats: {}, transactions: [] };
-
-  function setState({ newStats, newTransactions }) {
-    let newState = { stats: newStats, transactions: newTransactions };
-    Object.assign(currentState, newState);
+//APPENDING ELEMENTS
+export function append(
+  parent,
+  children,
+  cleanup = false
+) {
+  if (cleanup) {
+    parent.innerHTML = '';
   }
 
-  return [currentState, setState];
+  children.forEach((el) => {
+    parent.append(el);
+  });
+}
+
+//CREATING ELEMENTS
+export function create(str) {
+  const wrapper = document.createElement('div');
+  wrapper.innerHTML = str;
+  const newElement = wrapper.firstElementChild;
+
+  return newElement;
 }

@@ -1,6 +1,7 @@
-import { areValuesHidden, textPlaceholder } from "./hide-values.js";
+import { areValuesHidden, textPlaceholder } from "./finance-context.js";
+import { get } from './utils/utils.js';
 
-const totalBalanceEl = document.getElementById('total-balance-amount');
+const totalBalanceEl = get('#total-balance-amount');
 const formatStatsAmount = new Intl.NumberFormat("pt-BR", {
     style: "currency",
     currency: "BRL",

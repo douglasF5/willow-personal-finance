@@ -1,7 +1,6 @@
-import { finance, setFinance } from './finance-context.js';
-import { toTitleCaseWord, formatDate, useState } from './utils/utils.js';
+import { finance, setFinance, areValuesHidden, textPlaceholder } from './finance-context.js';
+import { toTitleCaseWord, formatDate } from './utils/utils.js';
 import { updateBalanceOnUI } from "./stats.js";
-import { areValuesHidden, textPlaceholder } from "./hide-values.js";
 
 export let transactionsDataState = [];
 const transactionsTableEl = document.getElementById('transactions-table');

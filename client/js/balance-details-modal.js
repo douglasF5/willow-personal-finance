@@ -1,8 +1,7 @@
 import { showModal, hideModal } from './modal.js';
 import { getHiddenStats } from './stats.js';
-import { finance } from './finance-context.js';
+import { finance, areValuesHidden } from './finance-context.js';
 import { toTitleCaseWord } from './utils/utils.js';
-import { areValuesHidden } from './hide-values.js';
 
 const openModalTrigger = document.getElementById('button-see-details');
 const closeModalTrigger = document.getElementById('dismiss-button-balance-details-modal');

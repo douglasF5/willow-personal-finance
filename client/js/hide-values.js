@@ -1,13 +1,8 @@
 import { updateBalanceOnUI } from "./stats.js";
-import { finance } from './finance-context.js';
+import { finance, areValuesHidden, toggleValuesHidden } from './finance-context.js';
+import { get } from './utils/utils.js';
 import { renderTransactionTable, updateFilterOptions, currentFilter } from './listing-transactions.js';
 import { setUpToolTip, updateToolTip } from "./tool-tip.js";
-
-export const textPlaceholder = {
-    hiddenValue: '🙈',
-    hiddenValues: '🙈🙈🙈'
-}; //••••••
-export let areValuesHidden = false;
 
 function hideValues() {
     updateBalanceOnUI(finance.stats.balance.amount);
@@ -16,11 +11,11 @@ function hideValues() {
 }
 
 //TOGGLE ICON ON UI
-const buttonHideValues = document.getElementById('hide-values-button');
-const iconHideValues = document.getElementById('icon-button-hide-values');
+const buttonHideValues = get('#hide-values-button');
+const iconHideValues = get('#icon-button-hide-values');
 
 buttonHideValues.onclick = () => {
-    areValuesHidden = !areValuesHidden;
+    toggleValuesHidden(!areValuesHidden);
     let newIcon = `<use xlink:href="assets/icons.svg#${areValuesHidden ? 'eye-off' : 'eye'}"/>`;
     iconHideValues.innerHTML = newIcon;
     hideValues();
