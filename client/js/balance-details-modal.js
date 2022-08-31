@@ -5,6 +5,7 @@ import { toTitleCaseWord } from './utils/utils.js';
 
 const openModalTrigger = document.getElementById('button-see-details');
 const closeModalTrigger = document.getElementById('dismiss-button-balance-details-modal');
+
 const modalBodyContentContainer = document.getElementById('body-balance-details-modal');
 
 function updateBodyContent() {

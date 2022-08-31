@@ -1,4 +1,3 @@
-
 //FINANCE OBJECT
 export let finance = null;
 export function setFinance(newState) {
@@ -15,3 +14,11 @@ export let areValuesHidden = false;
 export function toggleValuesHidden(value) {
     areValuesHidden = value;
 }
+
+//APP OBSERVER
+let observers = [];
+
+export const appObserver = Object.freeze({
+    subscribe: (fn) => observers.push(fn),
+    notify: data => observers.forEach(observer => observer(data))
+});
