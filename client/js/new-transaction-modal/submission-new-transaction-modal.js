@@ -66,6 +66,4 @@ formsNewTransactionModal.addEventListener('submit', (e) => {
         amount: formData.type === 'income' ? smask.currencyUnformat(formData.amount, "pt-BR", "BRL") : smask.currencyUnformat(formData.amount, "pt-BR", "BRL") * -1,
         date: formatDate(formData.date, 'yyyy-mm-dd'),
     });
-
-    // console.log(formData);
 })

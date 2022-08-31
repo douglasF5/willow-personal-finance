@@ -124,7 +124,7 @@ export async function addNewTransaction(data) {
 
 //GET DATA
 async function getData() {
-    const URL = 'http://localhost:3000/transactions';
+    const URL = '/transactions';
   
     let reponse = await fetch(URL);
     let data = await reponse.json();

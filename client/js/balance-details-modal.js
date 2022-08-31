@@ -10,7 +10,7 @@ const modalBodyContentContainer = document.getElementById('body-balance-details-
 function updateBodyContent() {
     let statsData = finance.stats;
     let hiddenStats = getHiddenStats();
-    console.log(statsData);
+    
     modalBodyContentContainer.innerHTML = "";
     const formatStatAmount = new Intl.NumberFormat("pt-BR", {
         style: "currency",
