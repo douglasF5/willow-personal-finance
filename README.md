@@ -13,6 +13,8 @@
 - CSS (SASS)
 - JavaScript
 - Modular approach using SASS and JavaScript native modules for styling and scripting, respectively
+- NodeJS
+- PostgreSQL
 
 #### Implemented features:
 
