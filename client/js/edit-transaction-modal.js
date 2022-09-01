@@ -1,5 +1,6 @@
 import { deleteTransaction } from './finance-context.js';
 import { hideModal } from './modal.js';
+import { checkInputFields } from './new-transaction-modal.js';
 import { create, append, formatCurrency, formatDate } from './utils/utils.js';
 import { inputField } from './input-field.js';
 import { handleSubmit } from './form-submission.js';
@@ -16,10 +17,6 @@ modalContentContainer.addEventListener('submit', (e) => handleSubmit(e, 0, 'upda
 const titleField = inputField({ fieldName: 'title', iconName: 'text', handleInput: handleInput });
 const amountField = inputField({ fieldName: 'amount', iconName: 'money', handleInput: handleInput });
 const dateField = inputField({ fieldName: 'date', iconName: 'calendar', handleInput: handleInput });
-
-function handleInput() {
-    console.log('hey');
-}
 
 //MODAL TOP SECTION
 const topSection = create(`
@@ -63,6 +60,16 @@ const actionsWrapper = create(`
 
 const submitButton = create(`<button type="submit" class="dismiss-button-balance-details-modal" id="dismiss-button-balance-details-modal">Save</button>`);
 
+function handleInput() {
+    let flag = checkInputFields([titleField, amountField, dateField]);
+
+    if (flag) {
+        submitButton.disabled = false;
+    } else {
+        submitButton.disabled = true;
+    }
+}
+
 const deleteButton = create(`<button type="button" class="dismiss-button-balance-details-modal" id="dismiss-button-balance-details-modal">Delete</button>`);
 
 deleteButton.onclick = () => {
@@ -82,7 +89,11 @@ export const editTransactionModal = (transactionData) => {
     }
 
     titleField.children[1].value = transactionData.title;
-    amountField.children[1].value = formatCurrency.format(transactionData.amount);
+    amountField.children[1].value = formatCurrency.format(
+        transactionData.type === 'income'
+            ? transactionData.amount
+            : transactionData.amount * -1
+    );
     dateField.children[1].value = formatDate(transactionData.date, 'dd/mm/yyyy');
 
     for (let fieldContainer of [titleField, amountField, dateField]) {

@@ -4,11 +4,10 @@ import { addNewTransaction, updateTransaction } from './finance-context.js';
 import { formatDate } from "./utils/utils.js";
 import smask from './utils/field-masking.js';
 
-let formsData = {};
-
 //HANDLE SUBMIT
 export function handleSubmit(e, closeDelay = 1250, action = 'create') {
     e.preventDefault();
+    let formsData = {};
     const formElements = e.target.elements;
 
     for (let field of formElements) {
@@ -44,7 +43,7 @@ export function handleSubmit(e, closeDelay = 1250, action = 'create') {
                 date: formatDate(formsData.date, 'yyyy-mm-dd'),
             });
             break;
-        case 'udate':
+        case 'update':
             updateTransaction({
                 type: formsData.type,
                 title: formsData.title,

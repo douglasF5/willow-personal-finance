@@ -2,19 +2,23 @@
 @use '../base/text' as t;
 
 @mixin btn {
-    cursor: pointer;
-    transition: transform 100ms ease-in-out;
-    white-space: nowrap;
-  
-    @media (hover: hover) {
-      &:hover {
-        transform: scale(1.01);
-      }
-    }
+  cursor: pointer;
+  transition: transform 100ms ease-in-out;
+  white-space: nowrap;
 
-    &:active {
-      transform: scale(.99);
+  @media (hover: hover) {
+    &:hover {
+      transform: scale(1.01);
     }
+  }
+
+  &:active {
+    transform: scale(.99);
+  }
+
+  &[disabled] {
+    opacity: 0.5;
+  }
 }
 
 @mixin primary-button {
@@ -83,8 +87,8 @@
       color: var(--c-magenta-accent);
       background-color: var(--c-magenta-accent-container-secondary);
     }
-  
-    &:hover > svg {
+
+    &:hover>svg {
       fill: var(--c-magenta-accent);
     }
   }
@@ -108,8 +112,8 @@
       color: var(--c-magenta-accent);
       background-color: var(--c-magenta-accent-container-secondary);
     }
-  
-    &:hover > svg {
+
+    &:hover>svg {
       fill: var(--c-magenta-accent);
     }
   }

@@ -78,10 +78,10 @@
 
 .row-transactions-table {
     display: grid;
-    grid-template-columns: 3fr 2fr auto 1fr;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
     justify-items: start;
     align-items: center;
-    padding: u.toRem(16) 0;
+    padding: u.toRem(16) u.toRem(12);
     border-bottom: 1px solid var(--c-outline-primary);
     grid-template-areas: none;
     cursor: pointer;
@@ -113,6 +113,7 @@
         grid-template-areas:
             "type description amount"
             ". date date";
+        padding: u.toRem(12) u.toRem(8);
     }
 
 }
@@ -137,6 +138,7 @@
     gap: u.toRem(4);
     color: var(--c-on-surface-secondary);
     justify-self: start;
+    white-space: nowrap;
 
     @include br.custom(728) {
         grid-area: date;
@@ -162,6 +164,7 @@
     gap: u.toRem(4);
     padding: u.toRem(4) u.toRem(6);
     border-radius: u.toRem(4);
+    justify-self: center;
 
     .income & {
         background-color: var(--c-mint-accent-container-secondary)
@@ -206,6 +209,7 @@
 .amount-transaction {
     @include t.base("L", "semibold", "one-liner");
     justify-self: end;
+    white-space: nowrap;
 
     @include br.custom(728) {
         grid-area: amount;

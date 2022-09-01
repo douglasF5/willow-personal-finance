@@ -15,7 +15,10 @@ export function renderTransactionTable() {
         transactions = finance.transactions.filter(transaction => transaction.type === currentFilter);
     }
 
-    if (transactions.length === 0) return;
+    if (transactions.length === 0) {
+        transactionsTableEl.innerHTML = '';
+        return;
+    };
 
     const transactionRows = transactions.map(transaction => {
         const row = create(`<div class="row-transactions-table ${transaction.type}">

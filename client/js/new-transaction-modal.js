@@ -91,7 +91,7 @@ const newTransactionModal = () => {
 };
 
 //GO-AWAY CARD ANIMATION
-function checkInputFields(inputFields) {
+export function checkInputFields(inputFields) {
     let filledFields = 0;
 
     for (let field of inputFields) {
