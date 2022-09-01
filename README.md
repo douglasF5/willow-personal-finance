@@ -19,8 +19,8 @@
 
 #### Implemented features:
 
-- Adding new transactions via modal component
 - Listing and filtering transactions
+- Adding, editing and deleting transactions
 - Calculating and displaying data summary based on created transactions
 - Hide values
 - UI theming
