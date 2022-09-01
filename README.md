@@ -20,7 +20,7 @@
 #### Implemented features:
 
 - Listing and filtering transactions
-- Adding, editing and deleting transactions
+- Adding, Editing and Deleting transactions
 - Calculating and displaying data summary based on created transactions
 - Hide values
 - UI theming
