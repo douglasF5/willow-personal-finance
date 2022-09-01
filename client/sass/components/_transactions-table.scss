@@ -67,7 +67,7 @@
     }
 }
 
-.radio-filter-option:checked + .lable-filter-option {
+.radio-filter-option:checked+.lable-filter-option {
     color: var(--c-on-surface-inverted-primary);
     background-color: var(--c-surface-inverted-primary);
 }
@@ -78,12 +78,19 @@
 
 .row-transactions-table {
     display: grid;
-    grid-template-columns: 2fr 1fr auto 1fr;
+    grid-template-columns: 3fr 2fr auto 1fr;
     justify-items: start;
     align-items: center;
     padding: u.toRem(16) 0;
     border-bottom: 1px solid var(--c-outline-primary);
     grid-template-areas: none;
+    cursor: pointer;
+
+    @media (hover: hover) {
+        &:hover {
+            background-color: var(--c-surface-secondary);
+        }
+    }
 
     &.income {
         color: var(--c-mint-accent);
@@ -130,7 +137,7 @@
     gap: u.toRem(4);
     color: var(--c-on-surface-secondary);
     justify-self: start;
-    
+
     @include br.custom(728) {
         grid-area: date;
     }
@@ -189,7 +196,7 @@
         .income & {
             @include i.icon(u.toRem(14), var(--c-mint-accent));
         }
-    
+
         .expense & {
             @include i.icon(u.toRem(14), var(--c-orange-accent));
         }
@@ -199,7 +206,7 @@
 .amount-transaction {
     @include t.base("L", "semibold", "one-liner");
     justify-self: end;
-    
+
     @include br.custom(728) {
         grid-area: amount;
     }

@@ -4,18 +4,18 @@
 
 .text-input-container {
 	position: relative;
-    display: flex;
+	display: flex;
 	justify-content: space-between;
-    align-items: center;
-    width: 100%;
+	align-items: center;
+	width: 100%;
 	padding: 0 16px;
 	border: 1px solid var(--c-outline-secondary);
 	border-radius: 8px;
-    cursor: text;
+	cursor: text;
 
-    &:focus-within {
-        border: 1px solid var(--c-magenta-accent);
-    }
+	&:focus-within {
+		border: 1px solid var(--c-magenta-accent);
+	}
 }
 
 .descriptor-text-input {
@@ -37,19 +37,19 @@
 .text-input {
 	@include t.base("L", "regular", "one-liner");
 
-    padding: u.toRem(14) 0;
+	padding: u.toRem(14) 0;
 	border: none;
 	font-size: 16px;
 	background-color: transparent;
 	color: var(--c-on-surface-primary);
 
-    &:focus-visible {
-        outline: none;
-    }
+	&:focus-visible {
+		outline: none;
+	}
 }
 
-.text-input-container:focus-within > .animatable-label,
-.text-input-container:focus-within > .fixed-label {
+.text-input-container:focus-within>.animatable-label,
+.text-input-container:focus-within>.fixed-label {
 	@include t.mini("L", "medium", "one-liner");
 
 	top: -6px;
@@ -59,7 +59,7 @@
 	color: var(--c-magenta-accent);
 }
 
-.text-input:focus + .fixed-label {
+.text-input:focus+.fixed-label {
 	color: var(--c-magenta-accent);
 }
 
@@ -70,14 +70,14 @@
 	font-size: 12px;
 	padding: 0 4px;
 	background-color: var(--c-surface-primary);
-	color: var(--c-on-surface-primary);
+	color: var(--c-on-surface-secondary);
 }
 
 .icon-text-input {
-    @include i.icon(u.toRem(20), var(--c-on-surface-tertiary));
-    pointer-events: none;
+	@include i.icon(u.toRem(20), var(--c-on-surface-tertiary));
+	pointer-events: none;
 }
 
-.text-input-container:focus-within > .icon-text-input {
+.text-input-container:focus-within>.icon-text-input {
 	fill: var(--c-magenta-accent);
 }

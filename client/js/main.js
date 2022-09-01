@@ -1,14 +1,13 @@
-import './new-transaction-modal/style-animation-new-transaction-modal.js';
-import './new-transaction-modal/submission-new-transaction-modal.js';
+import { getData, refreshApp } from './finance-context.js';
+import './form-submission.js';
+import './new-transaction-modal.js';
 import './balance-details-modal.js';
 import './hide-values.js';
-import './stats.js';
-import './listing-transactions.js';
-import { toggleTheme } from './color-scheme.js';
-import './tool-tip.js';
+import './color-scheme.js';
 
-window.addEventListener("keydown", (e) => {
-    if(e.key.toLowerCase() === 't' && e.ctrlKey) {
-        toggleTheme();
-    }
-})
+async function appInit() {
+    await getData();
+    refreshApp();
+}
+
+appInit();

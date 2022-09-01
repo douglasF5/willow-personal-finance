@@ -1,23 +1,26 @@
-//TOGGLE MODAL VISIBILITY
-let modalOpen = null;
+import { get, append } from './utils/utils.js';
 
-export function showModal(elementId) {
-    modalOpen = document.getElementById(elementId);
-    modalOpen.setAttribute("data-is-hidden", "false");
+let openModal = null;
+const modalOuterContainer = get('#modal-outer-container');
 
-    modalOpen.onclick = (e) => {
-        if(e.target === modalOpen) hideModal(modalOpen.id);
-    }
+modalOuterContainer.onclick = (e) => {
+    if (e.target === modalOuterContainer) hideModal();
+};
+
+export function showModal(modal) {
+    openModal = modal;
+    append(modalOuterContainer, [modal]);
+    modalOuterContainer.setAttribute("data-is-hidden", "false");
 }
 
-export function hideModal(elementId) {
-    if(!(modalOpen.id === elementId)) return;
-
-    modalOpen.classList.add('fade-out-modal');
+export function hideModal() {
+    modalOuterContainer.innerHTML = '';
+    openModal.innerHTML = '';
+    modalOuterContainer.classList.add('fade-out-modal');
 
     setTimeout(() => {
-        modalOpen.setAttribute("data-is-hidden", "true");
-        modalOpen.classList.remove('fade-out-modal');
-        modalOpen = null;
+        modalOuterContainer.setAttribute("data-is-hidden", "true");
+        modalOuterContainer.classList.remove('fade-out-modal');
+        openModal = null;
     }, 200);
 }

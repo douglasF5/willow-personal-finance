@@ -1,47 +1,50 @@
 import { showModal, hideModal } from './modal.js';
-import { getHiddenStats } from './stats.js';
-import { finance, areValuesHidden } from './finance-context.js';
-import { toTitleCaseWord } from './utils/utils.js';
+import { finance, areValuesHidden, textPlaceholder } from './finance-context.js';
+import { toTitleCaseWord, formatCurrency, get, create, append } from './utils/utils.js';
 
-const openModalTrigger = document.getElementById('button-see-details');
-const closeModalTrigger = document.getElementById('dismiss-button-balance-details-modal');
+const openModalTrigger = get('#button-see-details');
 
-const modalBodyContentContainer = document.getElementById('body-balance-details-modal');
-
-function updateBodyContent() {
+//CREATING MODAL
+const balanceDetailsModal = () => {
     let statsData = finance.stats;
-    let hiddenStats = getHiddenStats();
-    
-    modalBodyContentContainer.innerHTML = "";
-    const formatStatAmount = new Intl.NumberFormat("pt-BR", {
-        style: "currency",
-        currency: "BRL",
-    });
+    const mathSymbols = {
+        income: '+',
+        expenses: '-',
+        balance: '='
+    };
+    let statsRows = [];
 
-    for(let statKey in statsData) {
+    const modalContentContainer = create(`<div class="balance-details-modal-content"></div>`);
+    const modalTitle = create(`<h2 class="title-balance-details-modal">Balance details</h2>`);
+
+    const modalBodyContentContainer = create(`<div class="body-balance-details-modal" id="body-balance-details-modal"></div>`);
+
+    const closeModalTrigger = create(`<button type="button" class="dismiss-button-balance-details-modal" id="dismiss-button-balance-details-modal">Ok, I understand</button>`);
+
+    closeModalTrigger.onclick = hideModal;
+
+    for (let statKey in statsData) {
         const stat = statsData[statKey];
-        const containerEl = document.createElement('DIV');
-        const mathSymbols = {
-            income: '+',
-            expenses: '-',
-            balance: '='
-        }
-        containerEl.classList.add('content-row-balance-details-modal');
 
-        containerEl.innerHTML = `<div class="stat-title-balance-details-modal">
-        <h3>(${mathSymbols[statKey]}) Total ${toTitleCaseWord(statKey)}</h3>
-        <p>${stat.count} transaction${stat.count !== 1 ? 's' : ''}</p>
-    </div>
-    <strong>${areValuesHidden ? hiddenStats[statKey].amount : formatStatAmount.format(stat.amount)}</strong>`;
-        modalBodyContentContainer.append(containerEl);
+        const statRow = create(`
+            <div class="content-row-balance-details-modal">
+                <div class="stat-title-balance-details-modal">
+                    <h3>(${mathSymbols[statKey]}) Total ${toTitleCaseWord(statKey)}</h3>
+                    <p>${areValuesHidden ? textPlaceholder.hiddenValue : stat.count} transaction${stat.count !== 1 ? 's' : ''}</p>
+                </div>
+                <strong>${areValuesHidden ? textPlaceholder.hiddenValues : formatCurrency.format(stat.amount)}</strong>
+            </div>
+        `);
+        statsRows.push(statRow);
     }
-}
 
-openModalTrigger.onclick = () => {
-    showModal('balance-details-modal');
-    updateBodyContent();
+    append(modalBodyContentContainer, statsRows, true);
+    append(modalContentContainer, [modalTitle, modalBodyContentContainer, closeModalTrigger], true);
+
+    return modalContentContainer;
 };
 
-closeModalTrigger.onclick = () => {
-    hideModal('balance-details-modal');
+//SHOW MODAL
+openModalTrigger.onclick = () => {
+    showModal(balanceDetailsModal());
 };
