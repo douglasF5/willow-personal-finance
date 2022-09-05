@@ -15,7 +15,6 @@ export function showModal(modal) {
 
 export function hideModal() {
     modalOuterContainer.innerHTML = '';
-    openModal.innerHTML = '';
     modalOuterContainer.classList.add('fade-out-modal');
 
     setTimeout(() => {
