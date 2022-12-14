@@ -1,4 +1,4 @@
-# Willow Personal Finance - Exercise from Warren Tech Academy
+# Willow Personal Finance
 
 * [About](#about)
 * [Project screenshots](#project-screenshots)
