@@ -1,6 +1,8 @@
 # Willow Personal Finance
 
 * [About](#about)
+  * [Tools](#tools)
+  * [Features](#implemented-features)
 * [Project screenshots](#project-screenshots)
 * [Installation](#installation)
 * [Extra notes](#extra-notes)
@@ -8,7 +10,9 @@
 
 ## About
 
-#### Tools:
+Simple budget-tracker fullstack web app.
+
+### Tools
 
 - HTML
 - CSS (SASS)
@@ -18,14 +22,14 @@
 - ExpressJS
 - PostgreSQL
 
-#### Implemented features:
+### Implemented features
 
-- Listing and filtering transactions
-- Adding, Editing and Deleting transactions
-- Calculating and displaying data summary based on created transactions
-- Hide values
-- UI theming
-- Responsive layout
+- ✅ Listing and filtering transactions
+- ✅ Adding, Editing and Deleting transactions
+- ✅ Calculating and displaying data summary based on created transactions
+- ✅ Hide values
+- ✅ UI theming
+- ✅ Responsive layout
 
 <br>
 
